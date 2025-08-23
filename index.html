@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credify - Manage Your Credit Journey</title>
+  <meta name="description" content="Take control of your credit score with Credify. Monitor, analyze, and improve your financial health with real-time insights and expert guidance.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <div class="nav-actions">
+        <a href="login.html" class="btn btn-outline">Sign In</a>
+        <a href="register.html" class="btn btn-primary">Get Started</a>
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Take Control of Your
+          <span class="gradient-text">Credit Journey</span>
+        </h1>
+        <p class="hero-description">
+          Monitor your credit score in real-time, get personalized insights, and take actionable steps to improve your financial health. Join thousands of users who trust Credify.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary btn-large">
+            <span class="material-symbols-rounded">rocket_launch</span>
+            Start Free Trial
+          </a>
+          <a href="#how-it-works" class="btn btn-outline btn-large">
+            <span class="material-symbols-rounded">play_circle</span>
+            Watch Demo
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Active Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">User Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-image">
+          <div class="credit-score-card">
+            <div class="score-circle">
+              <div class="score-number">750</div>
+              <div class="score-label">Credit Score</div>
+            </div>
+            <div class="score-details">
+              <div class="score-change positive">
+                <span class="material-symbols-rounded">trending_up</span>
+                +25 points
+              </div>
+              <div class="score-date">Updated today</div>
+            </div>
+          </div>
+          <div class="floating-card card-1">
+            <span class="material-symbols-rounded">notifications</span>
+            <div>Score Alert</div>
+          </div>
+          <div class="floating-card card-2">
+            <span class="material-symbols-rounded">insights</span>
+            <div>Smart Tips</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="hero-bg">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="bg-shape bg-shape-3"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Credify?</h2>
+        <p class="section-description">
+          Powerful tools and insights to help you understand, monitor, and improve your credit score
+        </p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">monitoring</span>
+          </div>
+          <h3 class="feature-title">Real-time Monitoring</h3>
+          <p class="feature-description">
+            Get instant alerts when your credit score changes and track your progress over time with detailed analytics.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">security</span>
+          </div>
+          <h3 class="feature-title">Bank-level Security</h3>
+          <p class="feature-description">
+            Your data is protected with enterprise-grade encryption and security measures that exceed industry standards.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">insights</span>
+          </div>
+          <h3 class="feature-title">Smart Insights</h3>
+          <p class="feature-description">
+            Receive personalized recommendations and actionable advice to improve your credit score effectively.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">support_agent</span>
+          </div>
+          <h3 class="feature-title">Expert Support</h3>
+          <p class="feature-description">
+            Access to credit experts and customer support team ready to help you with any questions or concerns.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">analytics</span>
+          </div>
+          <h3 class="feature-title">Detailed Analytics</h3>
+          <p class="feature-description">
+            Understand what affects your credit score with comprehensive reports and trend analysis.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">mobile_friendly</span>
+          </div>
+          <h3 class="feature-title">Mobile First</h3>
+          <p class="feature-description">
+            Access your credit information anywhere, anytime with our responsive mobile and web applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How Credify Works</h2>
+        <p class="section-description">
+          Get started in minutes with our simple three-step process
+        </p>
+      </div>
+      
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">Create Your Account</h3>
+            <p class="step-description">
+              Sign up in minutes with just your basic information. No credit card required to start.
+            </p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Connect Your Credit</h3>
+            <p class="step-description">
+              Securely connect your credit accounts and we'll start monitoring your credit score immediately.
+            </p>
+          </div>
+        </div>
+        
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">Get Insights & Improve</h3>
+            <p class="step-description">
+              Receive personalized insights and recommendations to help improve your credit score over time.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Simple, Transparent Pricing</h2>
+        <p class="section-description">
+          Choose the plan that fits your needs. All plans include our core features.
+        </p>
+      </div>
+      
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="plan-name">Free</h3>
+            <div class="plan-price">
+              <span class="price-amount">$0</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Basic credit score monitoring</li>
+            <li>Monthly credit report</li>
+            <li>Basic insights</li>
+            <li>Email support</li>
+          </ul>
+          <a href="register.html" class="btn btn-outline btn-full">Get Started</a>
+        </div>
+        
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3 class="plan-name">Premium</h3>
+            <div class="plan-price">
+              <span class="price-amount">$19</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Everything in Free</li>
+            <li>Real-time credit alerts</li>
+            <li>Advanced analytics</li>
+            <li>Credit score simulator</li>
+            <li>Priority support</li>
+            <li>Identity theft protection</li>
+          </ul>
+          <a href="register.html" class="btn btn-primary btn-full">Start Free Trial</a>
+        </div>
+        
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="plan-name">Family</h3>
+            <div class="plan-price">
+              <span class="price-amount">$39</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Everything in Premium</li>
+            <li>Up to 5 family members</li>
+            <li>Family credit insights</li>
+            <li>Educational resources</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="register.html" class="btn btn-outline btn-full">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Users Say</h2>
+        <p class="section-description">
+          Join thousands of satisfied customers who have improved their credit scores with Credify
+        </p>
+      </div>
+      
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Credify helped me understand my credit score and gave me actionable steps to improve it. My score went up 45 points in just 3 months!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">SM</div>
+            <div class="author-info">
+              <div class="author-name">Sarah Mitchell</div>
+              <div class="author-title">Small Business Owner</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The real-time alerts and insights are game-changing. I finally feel in control of my financial health. Highly recommend!"</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">MJ</div>
+            <div class="author-info">
+              <div class="author-name">Michael Johnson</div>
+              <div class="author-title">Software Engineer</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+        
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Customer support is exceptional. They helped me resolve a credit dispute issue quickly and professionally."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">EW</div>
+            <div class="author-info">
+              <div class="author-name">Emily Wilson</div>
+              <div class="author-title">Marketing Manager</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Take Control of Your Credit?</h2>
+        <p class="cta-description">
+          Join thousands of users who are already improving their financial health with Credify.
+        </p>
+        <div class="cta-actions">
+          <a href="register.html" class="btn btn-primary btn-large">Start Your Free Trial</a>
+          <a href="#contact" class="btn btn-outline btn-large">Contact Us</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Credify" class="logo-img" />
+            <span class="logo-text">Credify</span>
+          </div>
+          <p class="footer-description">
+            Empowering individuals to take control of their credit journey with innovative tools and expert guidance.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">facebook</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">twitter</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">linkedin</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">instagram</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Credify. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
