@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Notifications - Credify</title>
+  <link rel="stylesheet" href="notifications.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="disputes.html" class="nav-link">Disputes</a>
+        <a href="consents.html" class="nav-link">Consents</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit
+      </a>
+      <a href="disputes.html" class="drawer-link">
+        <span class="material-symbols-rounded">gavel</span>
+        Disputes
+      </a>
+      <a href="consents.html" class="drawer-link">
+        <span class="material-symbols-rounded">assignment_turned_in</span>
+        Consents
+      </a>
+      <a href="notifications.html" class="drawer-link active">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Notifications Header -->
+    <section class="notifications-header">
+      <div class="notifications-header-content">
+        <h1>Notifications</h1>
+        <p>Stay updated with your credit activities and important alerts</p>
+        <div class="notifications-actions">
+          <button class="btn-primary" id="markAllReadBtn">Mark All as Read</button>
+          <button class="btn-secondary" id="clearAllBtn">Clear All</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Notifications Filters -->
+    <section class="notifications-filters">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All</button>
+        <button class="filter-tab" data-filter="unread">Unread</button>
+        <button class="filter-tab" data-filter="credit">Credit</button>
+        <button class="filter-tab" data-filter="disputes">Disputes</button>
+        <button class="filter-tab" data-filter="system">System</button>
+      </div>
+    </section>
+
+    <!-- Notifications List -->
+    <section class="notifications-list">
+      <div class="notification-item unread" data-type="credit">
+        <div class="notification-icon">
+          <span class="material-symbols-rounded">credit_score</span>
+        </div>
+        <div class="notification-content">
+          <h3>Credit Score Updated</h3>
+          <p>Your credit score has been updated to 750. This is a 15-point increase from last month.</p>
+          <div class="notification-meta">
+            <span class="notification-time">2 hours ago</span>
+            <span class="notification-category">Credit</span>
+          </div>
+        </div>
+        <div class="notification-actions">
+          <button class="mark-read-btn" title="Mark as read">
+            <span class="material-symbols-rounded">check_circle</span>
+          </button>
+          <button class="delete-btn" title="Delete">
+            <span class="material-symbols-rounded">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="notification-item" data-type="disputes">
+        <div class="notification-icon disputes">
+          <span class="material-symbols-rounded">gavel</span>
+        </div>
+        <div class="notification-content">
+          <h3>Dispute Status Changed</h3>
+          <p>Your dispute regarding the late payment on account #12345 has been resolved in your favor.</p>
+          <div class="notification-meta">
+            <span class="notification-time">1 day ago</span>
+            <span class="notification-category">Disputes</span>
+          </div>
+        </div>
+        <div class="notification-actions">
+          <button class="mark-read-btn" title="Mark as read">
+            <span class="material-symbols-rounded">check_circle</span>
+          </button>
+          <button class="delete-btn" title="Delete">
+            <span class="material-symbols-rounded">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="notification-item unread" data-type="system">
+        <div class="notification-icon system">
+          <span class="material-symbols-rounded">security</span>
+        </div>
+        <div class="notification-content">
+          <h3>Security Alert</h3>
+          <p>New login detected from Cairo, Egypt. If this wasn't you, please review your account security.</p>
+          <div class="notification-meta">
+            <span class="notification-time">3 days ago</span>
+            <span class="notification-category">System</span>
+          </div>
+        </div>
+        <div class="notification-actions">
+          <button class="mark-read-btn" title="Mark as read">
+            <span class="material-symbols-rounded">check_circle</span>
+          </button>
+          <button class="delete-btn" title="Delete">
+            <span class="material-symbols-rounded">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="notification-item" data-type="credit">
+        <div class="notification-icon">
+          <span class="material-symbols-rounded">account_balance</span>
+        </div>
+        <div class="notification-content">
+          <h3>Loan Payment Due</h3>
+          <p>Your loan payment of $500 is due in 5 days. Please ensure timely payment to maintain your credit score.</p>
+          <div class="notification-meta">
+            <span class="notification-time">5 days ago</span>
+            <span class="notification-category">Credit</span>
+          </div>
+        </div>
+        <div class="notification-actions">
+          <button class="mark-read-btn" title="Mark as read">
+            <span class="material-symbols-rounded">check_circle</span>
+          </button>
+          <button class="delete-btn" title="Delete">
+            <span class="material-symbols-rounded">delete</span>
+          </button>
+        </div>
+      </div>
+
+      <div class="notification-item" data-type="system">
+        <div class="notification-icon system">
+          <span class="material-symbols-rounded">update</span>
+        </div>
+        <div class="notification-content">
+          <h3>System Maintenance</h3>
+          <p>Scheduled maintenance will occur on Sunday, 2:00 AM - 4:00 AM. Some services may be temporarily unavailable.</p>
+          <div class="notification-meta">
+            <span class="notification-time">1 week ago</span>
+            <span class="notification-category">System</span>
+          </div>
+        </div>
+        <div class="notification-actions">
+          <button class="mark-read-btn" title="Mark as read">
+            <span class="material-symbols-rounded">check_circle</span>
+          </button>
+          <button class="delete-btn" title="Delete">
+            <span class="material-symbols-rounded">delete</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Load More Section -->
+    <section class="load-more-section">
+      <button class="btn-secondary" id="loadMoreBtn">Load More Notifications</button>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div> <!-- Close main-content-wrapper -->
+
+  <script src="notifications.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      // Close on Escape key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>

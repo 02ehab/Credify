@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Consents - Credify</title>
+  <link rel="stylesheet" href="consents.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="disputes.html" class="nav-link">Disputes</a>
+        <a href="consents.html" class="nav-link">Consents</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit Overview
+      </a>
+      <a href="disputes.html" class="drawer-link">
+        <span class="material-symbols-rounded">gavel</span>
+        Disputes
+      </a>
+      <a href="consents.html" class="drawer-link active">
+        <span class="material-symbols-rounded">assignment_turned_in</span>
+        Consents
+      </a>
+      <a href="notifications.html" class="drawer-link">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Consents Header -->
+    <section class="consents-header">
+      <div class="consents-header-content">
+        <h1>Consent Management</h1>
+        <p>Manage your data sharing preferences and consent settings</p>
+        <div class="consents-actions">
+          <button class="btn-primary" id="newConsentBtn">New Consent</button>
+          <button class="btn-secondary" id="exportConsentsBtn">Export Consents</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consents Summary -->
+    <section class="consents-summary">
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="summary-icon active">
+            <span class="material-symbols-rounded">check_circle</span>
+          </div>
+          <div class="summary-content">
+            <h3>Active Consents</h3>
+            <span class="summary-number" id="activeConsents">8</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon expired">
+            <span class="material-symbols-rounded">schedule</span>
+          </div>
+          <div class="summary-content">
+            <h3>Expiring Soon</h3>
+            <span class="summary-number" id="expiringConsents">2</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon revoked">
+            <span class="material-symbols-rounded">cancel</span>
+          </div>
+          <div class="summary-content">
+            <h3>Revoked</h3>
+            <span class="summary-number" id="revokedConsents">3</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon pending">
+            <span class="material-symbols-rounded">pending</span>
+          </div>
+          <div class="summary-content">
+            <h3>Pending Review</h3>
+            <span class="summary-number" id="pendingConsents">1</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Consents Filters -->
+    <section class="consents-filters">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Consents</button>
+        <button class="filter-tab" data-filter="active">Active</button>
+        <button class="filter-tab" data-filter="expired">Expired</button>
+        <button class="filter-tab" data-filter="revoked">Revoked</button>
+        <button class="filter-tab" data-filter="pending">Pending</button>
+      </div>
+    </section>
+
+    <!-- Consents List -->
+    <section class="consents-list">
+      <div class="consent-item active" data-status="active">
+        <div class="consent-header">
+          <div class="consent-status active">
+            <span class="material-symbols-rounded">check_circle</span>
+            Active
+          </div>
+          <div class="consent-date">Expires: Dec 31, 2025</div>
+        </div>
+        <div class="consent-content">
+          <h3>Credit Report Access - ABC Bank</h3>
+          <p>Consent to allow ABC Bank to access your credit report for loan application purposes.</p>
+          <div class="consent-details">
+            <div class="detail-item">
+              <label>Purpose:</label>
+              <span>Loan Application</span>
+            </div>
+            <div class="detail-item">
+              <label>Data Shared:</label>
+              <span>Credit Report, Personal Info</span>
+            </div>
+            <div class="detail-item">
+              <label>Duration:</label>
+              <span>1 Year</span>
+            </div>
+            <div class="detail-item">
+              <label>Granted:</label>
+              <span>Jan 15, 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="consent-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="revokeConsentBtn">Revoke</button>
+        </div>
+      </div>
+
+      <div class="consent-item expiring" data-status="expiring">
+        <div class="consent-header">
+          <div class="consent-status expiring">
+            <span class="material-symbols-rounded">schedule</span>
+            Expiring Soon
+          </div>
+          <div class="consent-date">Expires: Jan 15, 2025</div>
+        </div>
+        <div class="consent-content">
+          <h3>Credit Monitoring - XYZ Credit Union</h3>
+          <p>Consent for ongoing credit monitoring and alerts from XYZ Credit Union.</p>
+          <div class="consent-details">
+            <div class="detail-item">
+              <label>Purpose:</label>
+              <span>Credit Monitoring</span>
+            </div>
+            <div class="detail-item">
+              <label>Data Shared:</label>
+              <span>Credit Alerts, Score Updates</span>
+            </div>
+            <div class="detail-item">
+              <label>Duration:</label>
+              <span>1 Year</span>
+            </div>
+            <div class="detail-item">
+              <label>Granted:</label>
+              <span>Jan 15, 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="consent-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="renewConsentBtn">Renew</button>
+        </div>
+      </div>
+
+      <div class="consent-item revoked" data-status="revoked">
+        <div class="consent-header">
+          <div class="consent-status revoked">
+            <span class="material-symbols-rounded">cancel</span>
+            Revoked
+          </div>
+          <div class="consent-date">Revoked: Nov 20, 2024</div>
+        </div>
+        <div class="consent-content">
+          <h3>Marketing Communications - DEF Bank</h3>
+          <p>Consent for marketing emails and promotional offers from DEF Bank.</p>
+          <div class="consent-details">
+            <div class="detail-item">
+              <label>Purpose:</label>
+              <span>Marketing</span>
+            </div>
+            <div class="detail-item">
+              <label>Data Shared:</label>
+              <span>Email, Preferences</span>
+            </div>
+            <div class="detail-item">
+              <label>Duration:</label>
+              <span>Until Revoked</span>
+            </div>
+            <div class="detail-item">
+              <label>Granted:</label>
+              <span>Mar 10, 2024</span>
+            </div>
+          </div>
+        </div>
+        <div class="consent-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="restoreConsentBtn">Restore</button>
+        </div>
+      </div>
+
+      <div class="consent-item pending" data-status="pending">
+        <div class="consent-header">
+          <div class="consent-status pending">
+            <span class="material-symbols-rounded">pending</span>
+            Pending Review
+          </div>
+          <div class="consent-date">Submitted: Dec 20, 2024</div>
+        </div>
+        <div class="consent-content">
+          <h3>Data Processing - GHI Insurance</h3>
+          <p>Consent for data processing and analysis for insurance quote purposes.</p>
+          <div class="consent-details">
+            <div class="detail-item">
+              <label>Purpose:</label>
+              <span>Insurance Quote</span>
+            </div>
+            <div class="detail-item">
+              <label>Data Shared:</label>
+              <span>Risk Assessment Data</span>
+            </div>
+            <div class="detail-item">
+              <label>Duration:</label>
+              <span>6 Months</span>
+            </div>
+            <div class="detail-item">
+              <label>Status:</label>
+              <span>Under Review</span>
+            </div>
+          </div>
+        </div>
+        <div class="consent-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="approveConsentBtn">Approve</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Consent Form (Hidden by default) -->
+    <section class="new-consent-form" id="newConsentForm" style="display: none;">
+      <div class="form-container">
+        <h2>Grant New Consent</h2>
+        <form id="consentForm">
+          <div class="form-group">
+            <label for="organizationName">Organization Name *</label>
+            <input type="text" id="organizationName" name="organizationName" required>
+          </div>
+          <div class="form-group">
+            <label for="consentPurpose">Consent Purpose *</label>
+            <select id="consentPurpose" name="consentPurpose" required>
+              <option value="">Select a purpose</option>
+              <option value="loan_application">Loan Application</option>
+              <option value="credit_monitoring">Credit Monitoring</option>
+              <option value="insurance_quote">Insurance Quote</option>
+              <option value="marketing">Marketing Communications</option>
+              <option value="data_analysis">Data Analysis</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="dataShared">Data to be Shared *</label>
+            <textarea id="dataShared" name="dataShared" rows="3" required placeholder="Describe what data will be shared..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="consentDuration">Consent Duration *</label>
+            <select id="consentDuration" name="consentDuration" required>
+              <option value="">Select duration</option>
+              <option value="3_months">3 Months</option>
+              <option value="6_months">6 Months</option>
+              <option value="1_year">1 Year</option>
+              <option value="2_years">2 Years</option>
+              <option value="until_revoked">Until Revoked</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="consentDescription">Additional Details</label>
+            <textarea id="consentDescription" name="consentDescription" rows="4" placeholder="Any additional information about this consent..."></textarea>
+          </div>
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+              <span class="checkmark"></span>
+              I have read and agree to the terms and conditions of this consent
+            </label>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelConsentBtn">Cancel</button>
+            <button type="submit" class="btn-primary">Grant Consent</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div> <!-- Close main-content-wrapper -->
+
+  <script src="consents.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>

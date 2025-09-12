@@ -1,0 +1,225 @@
+.invest-hero {
+  padding: 120px 0 80px;
+  position: relative;
+  background: linear-gradient(135deg, #0ea5e9 0%, #7c3aed 100%);
+  color: #ffffff;
+  overflow: hidden;
+}
+
+.invest-hero-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.invest-hero h1 {
+  font-size: 3rem;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+
+.invest-hero p {
+  font-size: 1.25rem;
+  color: #e2e8f0;
+  margin-bottom: 24px;
+}
+
+.invest-hero-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 28px;
+}
+
+.invest-metrics {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+
+.invest-metrics .metric {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 12px;
+  padding: 12px 16px;
+  min-width: 120px;
+  text-align: center;
+}
+
+.invest-metrics .value {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.invest-metrics .label {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+}
+
+.invest-hero-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(800px 400px at 20% 20%, rgba(255,255,255,0.12), transparent),
+              radial-gradient(600px 300px at 80% 60%, rgba(255,255,255,0.12), transparent);
+  pointer-events: none;
+}
+
+.section-light {
+  background: #f8fafc;
+  padding: 72px 0;
+}
+
+.section-white {
+  background: #ffffff;
+  padding: 72px 0;
+}
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+  margin-top: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.feature-columns {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.feature-col {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.feature-col .icon {
+  color: #2563eb;
+  margin-bottom: 8px;
+}
+
+.stats-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.tile {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.tile-value {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+
+.tile-label {
+  color: #64748b;
+}
+
+.traction-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.traction-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.bm-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.bm-item {
+  background: #f8fafc;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.list-checks {
+  margin: 8px 0 0 0;
+  padding-left: 18px;
+}
+
+.list-checks li {
+  margin: 10px 0;
+}
+
+.use-of-funds {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px;
+}
+
+.uof-item {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+}
+
+.invest-cta {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 24px;
+}
+
+.team-card {
+  background: #ffffff;
+  border: 1px solid rgba(226, 232, 240, 0.8);
+  border-radius: 14px;
+  padding: 24px;
+  text-align: center;
+}
+
+.team-card .avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  margin: 0 auto 8px;
+  background: linear-gradient(135deg, #2563eb, #7c3aed);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .invest-hero {
+    padding: 100px 0 60px;
+  }
+  .invest-hero h1 {
+    font-size: 2.25rem;
+  }
+}
+
+

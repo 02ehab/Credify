@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile - Credify</title>
+  <link rel="stylesheet" href="profile.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <!-- Navigation -->
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="nav-container">
+     <div class="nav-logo">
+       <img src="logo.png" alt="Credify" class="logo-img" />
+       <span class="logo-text">Credify</span>
+     </div>
+     <div class="nav-menu" id="navMenu">
+       <a href="index.html" class="nav-link active">Home</a>
+       <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+       <a href="disputes.html" class="nav-link">Disputes</a>
+       <a href="consents.html" class="nav-link">Consents</a>
+       <a href="notifications.html" class="nav-link">Notifications</a>
+       <a href="profile.html" class="nav-link">Profile</a>
+     </div>
+     <div class="nav-actions">
+       <button class="nav-toggle" id="navToggle">
+         <span class="material-symbols-rounded">menu</span>
+       </button>
+     </div>
+   </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit Overview
+      </a>
+      <a href="disputes.html" class="drawer-link">
+        <span class="material-symbols-rounded">gavel</span>
+        Disputes
+      </a>
+      <a href="consents.html" class="drawer-link">
+        <span class="material-symbols-rounded">assignment_turned_in</span>
+        Consents
+      </a>
+      <a href="notifications.html" class="drawer-link">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link active">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Profile Header Section -->
+    <section class="profile-header">
+      <div class="profile-header-content">
+        <div class="profile-avatar">
+          <img src="profile.jpg" alt="User Avatar" id="profileImage">
+          <button class="avatar-edit-btn" id="avatarEditBtn">
+            <span class="material-symbols-rounded">edit</span>
+          </button>
+        </div>
+        <div class="profile-info">
+          <h1 id="userName">Ahmed Ali</h1>
+          <p class="user-email" id="userEmail">ahmed@example.com</p>
+          <p class="user-role" id="userRole">Individual</p>
+          <div class="profile-actions">
+            <button class="btn-primary" id="editProfileBtn">Edit Profile</button>
+            <button class="btn-secondary" id="changePasswordBtn">Change Password</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Profile Details Section -->
+    <section class="profile-details">
+      <div class="profile-section">
+        <h2>Personal Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Full Name</label>
+            <span id="fullName">Ahmed Ali Mohamed</span>
+          </div>
+          <div class="info-item">
+            <label>Date of Birth</label>
+            <span id="dateOfBirth">15 March 1990</span>
+          </div>
+          <div class="info-item">
+            <label>Phone Number</label>
+            <span id="phoneNumber">+20 123 456 789</span>
+          </div>
+          <div class="info-item">
+            <label>National ID</label>
+            <span id="nationalId">12345678901234</span>
+          </div>
+          <div class="info-item">
+            <label>Address</label>
+            <span id="address">Cairo, Egypt</span>
+          </div>
+          <div class="info-item">
+            <label>Occupation</label>
+            <span id="occupation">Software Engineer</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Account Information</h2>
+        <div class="info-grid">
+          <div class="info-item">
+            <label>Member Since</label>
+            <span id="memberSince">January 2023</span>
+          </div>
+          <div class="info-item">
+            <label>Account Status</label>
+            <span class="status-badge active" id="accountStatus">Active</span>
+          </div>
+          <div class="info-item">
+            <label>Last Login</label>
+            <span id="lastLogin">Today, 2:30 PM</span>
+          </div>
+          <div class="info-item">
+            <label>Two-Factor Auth</label>
+            <span class="status-badge inactive" id="twoFactorStatus">Inactive</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="profile-section">
+        <h2>Credit Summary</h2>
+        <div class="credit-summary">
+          <div class="credit-score">
+            <div class="score-circle">
+              <span class="score-number" id="creditScore">750</span>
+              <span class="score-label">Credit Score</span>
+            </div>
+          </div>
+          <div class="credit-stats">
+            <div class="stat-item">
+              <span class="stat-label">Active Loans</span>
+              <span class="stat-value" id="activeLoans">2</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Total Credit</span>
+              <span class="stat-value" id="totalCredit">$15,000</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-label">Payment History</span>
+              <span class="stat-value" id="paymentHistory">98%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div> <!-- Close main-content-wrapper -->
+
+
+  
+  <script src="profile.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+
+</body>
+</html>

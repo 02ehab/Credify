@@ -1,0 +1,80 @@
+/* Shared responsive enhancements across all pages */
+
+/* Base container tightening on small screens */
+@media (max-width: 1024px) {
+  .container,
+  .footer-container,
+  .main-content-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Ensure fixed header spacing for inner pages */
+  .main-content-wrapper {
+    padding-top: 96px;
+  }
+
+  /* Common grids collapse */
+  .features-grid,
+  .steps-container,
+  .pricing-grid,
+  .testimonials-grid,
+  .summary-grid,
+  .cards-grid,
+  .feature-columns,
+  .stats-tiles,
+  .traction-grid,
+  .bm-grid,
+  .use-of-funds,
+  .team-grid,
+  .info-grid {
+    display: grid;
+    grid-template-columns: 1fr !important;
+    gap: 16px;
+  }
+
+  /* Tables or lists spacing */
+  .accounts-list,
+  .disputes-list,
+  .consents-list,
+  .notifications-list {
+    gap: 12px;
+  }
+
+  /* Form rows become single column */
+  .form-row {
+    display: block;
+  }
+  .form-row .form-group {
+    width: 100%;
+  }
+
+  /* Headings scale */
+  h1 { font-size: 1.75rem; }
+  h2 { font-size: 1.375rem; }
+}
+
+@media (max-width: 480px) {
+  /* Button sizing */
+  .btn,
+  .btn-large {
+    padding: 12px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* Cards padding */
+  .feature-card,
+  .pricing-card,
+  .testimonial-card,
+  .summary-card,
+  .card,
+  .bm-item,
+  .uof-item,
+  .team-card {
+    padding: 18px !important;
+  }
+}
+
+

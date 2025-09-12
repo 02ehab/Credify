@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Disputes - Credify</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="disputes.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+ 
+  <!-- Navigation -->
+  <nav class="navbar">
+   <div class="nav-container">
+     <div class="nav-logo">
+       <img src="logo.png" alt="Credify" class="logo-img" />
+       <span class="logo-text">Credify</span>
+     </div>
+     <div class="nav-menu" id="navMenu">
+       <a href="index.html" class="nav-link active">Home</a>
+       <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+       <a href="disputes.html" class="nav-link">Disputes</a>
+       <a href="consents.html" class="nav-link">Consents</a>
+       <a href="notifications.html" class="nav-link">Notifications</a>
+       <a href="profile.html" class="nav-link">Profile</a>
+     </div>
+     <div class="nav-actions">
+       <button class="nav-toggle" id="navToggle">
+         <span class="material-symbols-rounded">menu</span>
+       </button>
+     </div>
+   </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit Overview
+      </a>
+      <a href="disputes.html" class="drawer-link active">
+        <span class="material-symbols-rounded">gavel</span>
+        Disputes
+      </a>
+      <a href="consents.html" class="drawer-link">
+        <span class="material-symbols-rounded">assignment_turned_in</span>
+        Consents
+      </a>
+      <a href="notifications.html" class="drawer-link">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Disputes Header -->
+    <section class="disputes-header">
+      <div class="disputes-header-content">
+        <h1>Credit Disputes</h1>
+        <p>Challenge inaccurate information on your credit report and protect your financial reputation</p>
+        <div class="disputes-actions">
+          <button class="btn-primary" id="newDisputeBtn">New Dispute</button>
+          <button class="btn-secondary" id="viewHistoryBtn">View History</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disputes Summary -->
+    <section class="disputes-summary">
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="summary-icon">
+            <span class="material-symbols-rounded">pending</span>
+          </div>
+          <div class="summary-content">
+            <h3>Pending</h3>
+            <span class="summary-number" id="pendingCount">3</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon resolved">
+            <span class="material-symbols-rounded">check_circle</span>
+          </div>
+          <div class="summary-content">
+            <h3>Resolved</h3>
+            <span class="summary-number" id="resolvedCount">12</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon rejected">
+            <span class="material-symbols-rounded">cancel</span>
+          </div>
+          <div class="summary-content">
+            <h3>Rejected</h3>
+            <span class="summary-number" id="rejectedCount">2</span>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="summary-icon success">
+            <span class="material-symbols-rounded">trending_up</span>
+          </div>
+          <div class="summary-content">
+            <h3>Success Rate</h3>
+            <span class="summary-number" id="successRate">85%</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Disputes Filters -->
+    <section class="disputes-filters">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-filter="all">All Disputes</button>
+        <button class="filter-tab" data-filter="pending">Pending</button>
+        <button class="filter-tab" data-filter="resolved">Resolved</button>
+        <button class="filter-tab" data-filter="rejected">Rejected</button>
+      </div>
+    </section>
+
+    <!-- Disputes List -->
+    <section class="disputes-list">
+      <div class="dispute-item pending" data-status="pending">
+        <div class="dispute-header">
+          <div class="dispute-status pending">
+            <span class="material-symbols-rounded">pending</span>
+            Pending
+          </div>
+          <div class="dispute-date">Filed: Dec 15, 2024</div>
+        </div>
+        <div class="dispute-content">
+          <h3>Late Payment Dispute - Account #12345</h3>
+          <p>Disputing a late payment reported by ABC Bank for January 2024. Payment was made on time but not properly recorded.</p>
+          <div class="dispute-details">
+            <div class="detail-item">
+              <label>Creditor:</label>
+              <span>ABC Bank</span>
+            </div>
+            <div class="detail-item">
+              <label>Account Number:</label>
+              <span>****1234</span>
+            </div>
+            <div class="detail-item">
+              <label>Dispute Reason:</label>
+              <span>Payment Made on Time</span>
+            </div>
+          </div>
+        </div>
+        <div class="dispute-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="updateDisputeBtn">Update</button>
+        </div>
+      </div>
+
+      <div class="dispute-item resolved" data-status="resolved">
+        <div class="dispute-header">
+          <div class="dispute-status resolved">
+            <span class="material-symbols-rounded">check_circle</span>
+            Resolved
+          </div>
+          <div class="dispute-date">Resolved: Dec 10, 2024</div>
+        </div>
+        <div class="dispute-content">
+          <h3>Incorrect Balance Dispute - Account #67890</h3>
+          <p>Successfully disputed incorrect balance reporting. Creditor has updated the information and removed the negative mark.</p>
+          <div class="dispute-details">
+            <div class="detail-item">
+              <label>Creditor:</label>
+              <span>XYZ Credit Union</span>
+            </div>
+            <div class="detail-item">
+              <label>Account Number:</label>
+              <span>****5678</span>
+            </div>
+            <div class="detail-item">
+              <label>Resolution:</label>
+              <span>Balance Corrected</span>
+            </div>
+          </div>
+        </div>
+        <div class="dispute-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="downloadReportBtn">Download Report</button>
+        </div>
+      </div>
+
+      <div class="dispute-item rejected" data-status="rejected">
+        <div class="dispute-header">
+          <div class="dispute-status rejected">
+            <span class="material-symbols-rounded">cancel</span>
+            Rejected
+          </div>
+          <div class="dispute-date">Rejected: Dec 5, 2024</div>
+        </div>
+        <div class="dispute-content">
+          <h3>Account Ownership Dispute - Account #11111</h3>
+          <p>Dispute was rejected due to insufficient documentation. Additional evidence required to support claim.</p>
+          <div class="dispute-details">
+            <div class="detail-item">
+              <label>Creditor:</label>
+              <span>DEF Bank</span>
+            </div>
+            <div class="detail-item">
+              <label>Account Number:</label>
+              <span>****1111</span>
+            </div>
+            <div class="detail-item">
+              <label>Rejection Reason:</label>
+              <span>Insufficient Documentation</span>
+            </div>
+          </div>
+        </div>
+        <div class="dispute-actions">
+          <button class="btn-secondary" id="viewDetailsBtn">View Details</button>
+          <button class="btn-primary" id="resubmitBtn">Resubmit</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- New Dispute Form (Hidden by default) -->
+    <section class="new-dispute-form" id="newDisputeForm" style="display: none;">
+      <div class="form-container">
+        <h2>File New Dispute</h2>
+        <form id="disputeForm">
+          <div class="form-group">
+            <label for="creditorName">Creditor Name *</label>
+            <input type="text" id="creditorName" name="creditorName" required>
+          </div>
+          <div class="form-group">
+            <label for="accountNumber">Account Number *</label>
+            <input type="text" id="accountNumber" name="accountNumber" required>
+          </div>
+          <div class="form-group">
+            <label for="disputeReason">Dispute Reason *</label>
+            <select id="disputeReason" name="disputeReason" required>
+              <option value="">Select a reason</option>
+              <option value="payment_made">Payment Made on Time</option>
+              <option value="incorrect_balance">Incorrect Balance</option>
+              <option value="account_not_mine">Account Not Mine</option>
+              <option value="duplicate_account">Duplicate Account</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="disputeDescription">Description *</label>
+            <textarea id="disputeDescription" name="disputeDescription" rows="4" required placeholder="Provide detailed explanation of your dispute..."></textarea>
+          </div>
+          <div class="form-group">
+            <label for="supportingDocuments">Supporting Documents</label>
+            <input type="file" id="supportingDocuments" name="supportingDocuments" multiple accept=".pdf,.jpg,.jpeg,.png">
+            <small>Upload relevant documents (PDF, JPG, PNG) - Max 5 files</small>
+          </div>
+          <div class="form-actions">
+            <button type="button" class="btn-secondary" id="cancelDisputeBtn">Cancel</button>
+            <button type="submit" class="btn-primary">Submit Dispute</button>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div> <!-- Close main-content-wrapper -->
+
+ 
+  <script src="disputes.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register - Credify</title>
+  <link rel="stylesheet" href="register.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="register-container">
+    <!-- Background Pattern -->
+    <div class="background-pattern"></div>
+    
+    <!-- Register Form Card -->
+    <div class="register-card">
+      <!-- Logo Section -->
+      <div class="logo-section">
+        <img src="logo.png" alt="Credify" class="logo" />
+        <h1>Create Account</h1>
+        <p>Join Credify and take control of your credit journey</p>
+      </div>
+
+      <!-- Register Form -->
+      <form class="register-form" id="registerForm">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="firstName">First Name</label>
+            <div class="input-wrapper">
+              <span class="material-symbols-rounded input-icon">person</span>
+              <input 
+                type="text" 
+                id="firstName" 
+                name="firstName" 
+                placeholder="Enter first name"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName">Last Name</label>
+            <div class="input-wrapper">
+              <span class="material-symbols-rounded input-icon">person</span>
+              <input 
+                type="text" 
+                id="lastName" 
+                name="lastName" 
+                placeholder="Enter last name"
+                required
+              />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">email</span>
+            <input 
+              type="email" 
+              id="email" 
+              name="email" 
+              placeholder="Enter your email"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">phone</span>
+            <input 
+              type="tel" 
+              id="phone" 
+              name="phone" 
+              placeholder="Enter phone number"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">lock</span>
+            <input 
+              type="password" 
+              id="password" 
+              name="password" 
+              placeholder="Create a password"
+              required
+            />
+            <button type="button" class="password-toggle" id="passwordToggle">
+              <span class="material-symbols-rounded">visibility</span>
+            </button>
+          </div>
+          <div class="password-strength" id="passwordStrength">
+            <div class="strength-bar">
+              <div class="strength-fill" id="strengthFill"></div>
+            </div>
+            <span class="strength-text" id="strengthText">Password strength</span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="confirmPassword">Confirm Password</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">lock</span>
+            <input 
+              type="password" 
+              id="confirmPassword" 
+              name="confirmPassword" 
+              placeholder="Confirm your password"
+              required
+            />
+            <button type="button" class="password-toggle" id="confirmPasswordToggle">
+              <span class="material-symbols-rounded">visibility</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">calendar_today</span>
+            <input 
+              type="date" 
+              id="dateOfBirth" 
+              name="dateOfBirth" 
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="ssn">Social Security Number (Last 4 digits)</label>
+          <div class="input-wrapper">
+            <span class="material-symbols-rounded input-icon">security</span>
+            <input 
+              type="text" 
+              id="ssn" 
+              name="ssn" 
+              placeholder="XXXX"
+              maxlength="4"
+              pattern="[0-9]{4}"
+              required
+            />
+          </div>
+        </div>
+
+        <div class="form-options">
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="agreeTerms" name="agreeTerms" required />
+            <span class="checkmark"></span>
+            I agree to the <a href="#" class="terms-link">Terms of Service</a> and <a href="#" class="terms-link">Privacy Policy</a>
+          </label>
+          
+          <label class="checkbox-wrapper">
+            <input type="checkbox" id="agreeMarketing" name="agreeMarketing" />
+            <span class="checkmark"></span>
+            I agree to receive marketing communications from Credify
+          </label>
+        </div>
+
+        <button type="submit" class="register-btn" id="registerBtn">
+          <span class="btn-text">Create Account</span>
+          <span class="btn-loader" style="display: none;">
+            <div class="spinner"></div>
+          </span>
+        </button>
+      </form>
+
+      <!-- Divider -->
+      <div class="divider">
+        <span>or</span>
+      </div>
+
+      <!-- Social Register -->
+      <div class="social-register">
+        <button class="social-btn google-btn">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg" alt="Google" />
+          <span>Continue with Google</span>
+        </button>
+        
+        <button class="social-btn apple-btn">
+          <span class="material-symbols-rounded">apple</span>
+          <span>Continue with Apple</span>
+        </button>
+      </div>
+
+      <!-- Sign In Link -->
+      <div class="signin-link">
+        <p>Already have an account? <a href="login.html">Sign in</a></p>
+      </div>
+    </div>
+
+    <!-- Right Side Content -->
+    <div class="right-content">
+      <div class="content-wrapper">
+        <h2>Start Your Credit Journey</h2>
+        <p>Join thousands of users who are already monitoring and improving their credit scores with Credify.</p>
+        
+        <div class="features">
+          <div class="feature-item">
+            <span class="material-symbols-rounded feature-icon">monitoring</span>
+            <div>
+              <h3>Real-time Monitoring</h3>
+              <p>Get instant alerts when your credit score changes</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <span class="material-symbols-rounded feature-icon">analytics</span>
+            <div>
+              <h3>Detailed Analytics</h3>
+              <p>Understand what affects your credit score</p>
+            </div>
+          </div>
+          
+          <div class="feature-item">
+            <span class="material-symbols-rounded feature-icon">support_agent</span>
+            <div>
+              <h3>Expert Support</h3>
+              <p>Get help from credit experts when you need it</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="stats">
+          <div class="stat-item">
+            <div class="stat-number">50K+</div>
+            <div class="stat-label">Active Users</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">User Rating</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script src="register.js"></script>
+  <script>
+    // Mock auth: set flag then go home
+    (function() {
+      const form = document.getElementById('registerForm');
+      if (!form) return;
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        localStorage.setItem('isAuthenticated', 'true');
+        window.location.href = 'index.html';
+      });
+    })();
+  </script>
+</body>
+</html>
