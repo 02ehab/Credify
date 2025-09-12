@@ -426,3 +426,21 @@ if (typeof module !== 'undefined' && module.exports) {
     showNotification
   };
 }
+// جلب الأزرار
+const logoutBtn = document.getElementById('logoutBtn');
+const drawerLogout = document.getElementById('drawerLogout');
+
+// دالة تسجيل الخروج
+function logout() {
+  // مثال: مسح بيانات الجلسة
+  localStorage.clear();
+  sessionStorage.clear();
+
+  // إعادة توجيه لصفحة تسجيل الدخول
+  window.location.href = 'login.html'; // غير الرابط حسب صفحتك
+}
+
+// ربط الأزرار بالدالة
+logoutBtn.addEventListener('click', logout);
+drawerLogout.addEventListener('click', logout);
+
