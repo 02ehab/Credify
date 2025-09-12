@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Records - Credify</title>
+  <link rel="stylesheet" href="customer-records.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      
+      <div class="nav-actions">
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit
+      </a>
+      
+      <a href="notifications.html" class="drawer-link">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Records Header -->
+    <section class="records-header">
+      <div class="records-header-content">
+        <h1>Customer Records – Payment Delays</h1>
+        <p>This page helps companies record customers who delayed payments, specify reasons, and manage these cases easily.</p>
+        <div class="records-actions">
+          <button class="btn-primary" id="addCaseBtn">Add Case</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Records Table -->
+    <section class="records-section">
+      <div class="records-container">
+        <table class="records-table" id="recordsTable">
+          <thead>
+            <tr>
+              <th>Full Name</th>
+              <th>National ID</th>
+              <th>Phone Number</th>
+              <th>Email</th>
+              <th>Amount Due</th>
+              <th>Reason for Delay</th>
+              <th>Due Date</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="recordsTableBody">
+            <!-- Cases will be populated here -->
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Modal for Add/Edit Case -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 id="modalTitle">Add Case</h2>
+        <button class="modal-close" id="modalClose">&times;</button>
+      </div>
+      <form class="modal-form" id="caseForm">
+        <div class="form-group">
+          <label for="fullName">Full Name *</label>
+          <input type="text" id="fullName" name="fullName" required>
+          <span class="error" id="fullNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="nationalId">National ID *</label>
+          <input type="text" id="nationalId" name="nationalId" required>
+          <span class="error" id="nationalIdError"></span>
+        </div>
+        <div class="form-group">
+          <label for="phone">Phone Number *</label>
+          <input type="tel" id="phone" name="phone" required>
+          <span class="error" id="phoneError"></span>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email">
+        </div>
+        <div class="form-group">
+          <label for="amountDue">Amount Due *</label>
+          <input type="number" id="amountDue" name="amountDue" step="0.01" required>
+          <span class="error" id="amountDueError"></span>
+        </div>
+        <div class="form-group">
+          <label for="reason">Reason for Delay *</label>
+          <textarea id="reason" name="reason" required></textarea>
+          <span class="error" id="reasonError"></span>
+        </div>
+        <div class="form-group">
+          <label for="dueDate">Due Date *</label>
+          <input type="date" id="dueDate" name="dueDate" required>
+          <span class="error" id="dueDateError"></span>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <select id="status" name="status">
+            <option value="Good">Good</option>
+            <option value="Pending" selected>Pending</option>
+            <option value="Critical">Critical</option>
+          </select>
+        </div>
+        <div class="modal-actions">
+          <button type="button" class="btn-secondary" id="cancelBtn">Cancel</button>
+          <button type="submit" class="btn-primary">Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="customer-records.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      // Close on Escape key
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+  </script>
+</body>
+</html>

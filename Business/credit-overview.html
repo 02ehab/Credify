@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credit Overview - Credify</title>
+  <link rel="stylesheet" href="credit-overview.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <div class="nav-menu" id="navMenu">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      <div class="nav-actions">
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <a href="index.html" class="drawer-link">
+        <span class="material-symbols-rounded">home</span>
+        Home
+      </a>
+      <a href="credit-overview.html" class="drawer-link active">
+        <span class="material-symbols-rounded">credit_score</span>
+        Credit Overview
+      </a>
+      <a href="notifications.html" class="drawer-link">
+        <span class="material-symbols-rounded">notifications</span>
+        Notifications
+      </a>
+      <a href="profile.html" class="drawer-link">
+        <span class="material-symbols-rounded">person</span>
+        Profile
+      </a>
+    </nav>
+  </aside>
+
+  <!-- Main Content Wrapper -->
+  <div class="main-content-wrapper">
+    <!-- Credit Header -->
+    <section class="credit-header">
+      <div class="credit-header-content">
+        <h1>Business Credit Overview</h1>
+        <p>Monitor your company's credit health and track business financial progress</p>
+        <div class="credit-actions">
+          <button class="btn-primary" id="refreshCreditBtn">Refresh Credit</button>
+          <button class="btn-secondary" id="downloadReportBtn">Download Report</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credit Score Section -->
+    <section class="credit-score-section">
+      <div class="score-container">
+        <div class="score-circle">
+          <div class="score-number" id="creditScore">750</div>
+          <div class="score-label">Business Credit Score</div>
+          <div class="score-change positive" id="scoreChange">+15</div>
+        </div>
+        <div class="score-details">
+          <h3>Company Credit Score</h3>
+          <p>Excellent business credit score! Your company is in the top tier of creditworthiness.</p>
+          <div class="score-range">
+            <div class="range-bar">
+              <div class="range-fill" style="width: 75%"></div>
+            </div>
+            <div class="range-labels">
+              <span>300</span>
+              <span>850</span>
+            </div>
+          </div>
+          <div class="score-factors">
+            <div class="factor-item positive">
+              <span class="material-symbols-rounded">check_circle</span>
+              <span>Business Payment History: Excellent</span>
+            </div>
+            <div class="factor-item positive">
+              <span class="material-symbols-rounded">check_circle</span>
+              <span>Business Credit Utilization: Good</span>
+            </div>
+            <div class="factor-item neutral">
+              <span class="material-symbols-rounded">info</span>
+              <span>Business Credit Age: Average</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Credit Summary Cards -->
+    <section class="credit-summary">
+      <div class="summary-grid">
+        <div class="summary-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded">account_balance</span>
+          </div>
+          <div class="card-content">
+            <h3>Total Business Credit</h3>
+            <div class="card-value" id="totalCredit">$450,000</div>
+            <div class="card-change positive">+$50,000</div>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded">credit_card</span>
+          </div>
+          <div class="card-content">
+            <h3>Available Business Credit</h3>
+            <div class="card-value" id="availableCredit">$285,000</div>
+            <div class="card-change positive">+$32,000</div>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded">trending_up</span>
+          </div>
+          <div class="card-content">
+            <h3>Business Credit Utilization</h3>
+            <div class="card-value" id="creditUtilization">36.7%</div>
+            <div class="card-change negative">-2.3%</div>
+          </div>
+        </div>
+        <div class="summary-card">
+          <div class="card-icon">
+            <span class="material-symbols-rounded">schedule</span>
+          </div>
+          <div class="card-content">
+            <h3>Business Payment History</h3>
+            <div class="card-value" id="paymentHistory">98%</div>
+            <div class="card-change positive">+1%</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+<!-- Client Credit Status Section -->
+<section class="client-credit-status">
+  <div class="status-container">
+    <div class="status-header">
+      <h2>حالة العميل الائتمانية</h2>
+      <p>ابحث عن حالة الائتمان للعميل باستخدام رقم الهوية أو الاسم أو رقم الجوال</p>
+    </div>
+
+    <!-- Search Form -->
+    <div class="search-form" dir="rtl">
+      <div class="search-input-group">
+        <input
+          type="text"
+          id="searchInput"
+          class="search-input"
+          placeholder="أدخل رقم الهوية أو الاسم الرباعي أو رقم الجوال"
+          aria-label="بحث عن العميل"
+        />
+        <button class="search-btn" id="searchBtn" type="button">
+          <span class="material-symbols-rounded">search</span>
+          بحث
+        </button>
+      </div>
+    </div>
+
+    <!-- Result Area -->
+    <div class="result-area">
+      <div class="client-card" id="clientResult" style="display: none;">
+        <div class="card-header">
+          <h3>معلومات العميل</h3>
+        </div>
+        <div class="card-body">
+          <div class="client-info">
+            <div class="info-item">
+              <span class="info-label">الاسم:</span>
+              <span class="info-value" id="clientName"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">رقم الهوية:</span>
+              <span class="info-value" id="clientID"></span>
+            </div>
+            <div class="info-item">
+              <span class="info-label">رقم الجوال:</span>
+              <span class="info-value" id="clientPhone"></span>
+            </div>
+          </div>
+
+          <div class="credit-details">
+            <h4>التفاصيل الائتمانية</h4>
+            <div class="details-grid">
+              <div class="detail-item">
+                <span class="detail-label">القروض المستحقة:</span>
+                <span class="detail-value" id="clientLoans"></span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">الأقساط المتبقية / المتأخرة:</span>
+                <span class="detail-value" id="clientInstallments"></span>
+              </div>
+              <div class="detail-item">
+                <span class="detail-label">الحالة الائتمانية:</span>
+                <span id="clientStatus" class="status-badge"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- No Result Message -->
+      <div class="no-result-message" id="noResult" style="display: none;">
+        <div class="no-result-icon">
+          <span class="material-symbols-rounded">search_off</span>
+        </div>
+        <h3>لم يتم العثور على العميل</h3>
+        <p>الرجاء التأكد من البيانات المدخلة والمحاولة مرة أخرى.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+    <!-- Credit History Chart -->
+    <section class="credit-history">
+      <div class="section-header">
+        <h2>Business Credit Score History</h2>
+        <div class="chart-controls">
+          <button class="chart-period active" data-period="6m">6 Months</button>
+          <button class="chart-period" data-period="1y">1 Year</button>
+          <button class="chart-period" data-period="3y">3 Years</button>
+        </div>
+      </div>
+      <div class="chart-container">
+        <div class="chart-placeholder">
+          <span class="material-symbols-rounded">show_chart</span>
+          <p>Business credit score trend chart will be displayed here</p>
+          <small>Interactive chart showing your company's credit score progression over time</small>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="help.html">Help Center</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Credify. All rights reserved.</p>
+      </div>
+    </footer>
+  </div> <!-- Close main-content-wrapper -->
+
+  <script src="credit-overview.js"></script>
+  <script>
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      navToggle && navToggle.addEventListener('click', openDrawer);
+      closeBtn && closeBtn.addEventListener('click', closeDrawer);
+      overlay && overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+
+      window.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && drawer.classList.contains('open')) closeDrawer();
+      });
+    })();
+
+    // Client data (can be connected to database or API)
+    const clients = [
+      {
+        id: "1234567890",
+        name: "Mohamed Ali Ahmed",
+        phone: "0551234567",
+        loans: "$25,000",
+        installments: "2 installments pending",
+        status: "good"
+      },
+      {
+        id: "9876543210",
+        name: "Sara Ibrahim Hassan",
+        phone: "0509876543",
+        loans: "$80,000",
+        installments: "4 installments overdue",
+        status: "critical"
+      },
+      {
+        id: "1122334455",
+        name: "Ahmed Mohamed Hassan",
+        phone: "0501122334",
+        loans: "$15,000",
+        installments: "1 installment pending",
+        status: "warning"
+      }
+    ];
+
+    // Search functionality
+    document.getElementById("searchBtn").addEventListener("click", () => {
+      const query = document.getElementById("searchInput").value.trim();
+      const resultDiv = document.getElementById("clientResult");
+      const noResultDiv = document.getElementById("noResult");
+
+      if (!query) {
+        alert("Please enter client ID, Name, or Phone.");
+        return;
+      }
+
+      // Search in client data
+      const client = clients.find(
+        c =>
+          c.id.includes(query) ||
+          c.name.toLowerCase().includes(query.toLowerCase()) ||
+          c.phone.includes(query)
+      );
+
+      if (client) {
+        // Display client data
+        document.getElementById("clientName").textContent = client.name;
+        document.getElementById("clientID").textContent = client.id;
+        document.getElementById("clientPhone").textContent = client.phone;
+        document.getElementById("clientLoans").textContent = client.loans;
+        document.getElementById("clientInstallments").textContent = client.installments;
+
+        // Set status badge
+        const statusElement = document.getElementById("clientStatus");
+        statusElement.textContent = client.status === "good" ? "جيد" :
+                                   client.status === "warning" ? "تحذير" : "حرج";
+        statusElement.className = `status-badge ${client.status}`;
+
+        resultDiv.style.display = "block";
+        noResultDiv.style.display = "none";
+      } else {
+        // No client found
+        resultDiv.style.display = "none";
+        noResultDiv.style.display = "block";
+      }
+    });
+
+    // Allow search on Enter key
+    document.getElementById("searchInput").addEventListener("keypress", (e) => {
+      if (e.key === "Enter") {
+        document.getElementById("searchBtn").click();
+      }
+    });
+  </script>
+</body>
+</html>

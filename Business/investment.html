@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credify for Investors</title>
+  <meta name="description" content="Credify investor overview: vision, market, traction, business model, and our ask.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="investment.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <div class="nav-menu" id="navMenuGuest">
+        <a href="index.html#home" class="nav-link">Home</a>
+        <a href="index.html#features" class="nav-link">Features</a>
+        <a href="index.html#pricing" class="nav-link">Pricing</a>
+        <a href="investment.html" class="nav-link active">Investment</a>
+      </div>
+      <div class="nav-menu" id="navMenuAuth" style="display:none;">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="disputes.html" class="nav-link">Disputes</a>
+        <a href="consents.html" class="nav-link">Consents</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+        <a href="investment.html" class="nav-link active">Investment</a>
+      </div>
+      <div class="nav-actions">
+        <div id="guestActions">
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+          <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+        <div id="authActions" style="display:none;">
+          <button class="btn btn-outline" id="logoutBtn">
+            <span class="material-symbols-rounded">logout</span>
+            Logout
+          </button>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <div id="drawerGuest">
+        <a href="index.html#home" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="index.html#features" class="drawer-link"><span class="material-symbols-rounded">star</span> Features</a>
+        <a href="index.html#pricing" class="drawer-link"><span class="material-symbols-rounded">sell</span> Pricing</a>
+        <a href="investment.html" class="drawer-link"><span class="material-symbols-rounded">trending_up</span> Investment</a>
+        <a href="login.html" class="drawer-link"><span class="material-symbols-rounded">login</span> Sign In</a>
+        <a href="register.html" class="drawer-link"><span class="material-symbols-rounded">person_add</span> Get Started</a>
+      </div>
+      <div id="drawerAuth" style="display:none;">
+        <a href="index.html" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="credit-overview.html" class="drawer-link"><span class="material-symbols-rounded">credit_score</span> Credit Overview</a>
+        <a href="notifications.html" class="drawer-link"><span class="material-symbols-rounded">notifications</span> Notifications</a>
+        <a href="profile.html" class="drawer-link"><span class="material-symbols-rounded">person</span> Profile</a>
+        <a href="investment.html" class="drawer-link"><span class="material-symbols-rounded">trending_up</span> Investment</a>
+        <button class="drawer-link" id="drawerLogout" style="background:none;border:none;cursor:pointer;">
+          <span class="material-symbols-rounded">logout</span> Logout
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <section class="invest-hero">
+    <div class="container invest-hero-container">
+      <div class="invest-hero-content">
+        <h1>Credify: The Credit OS for Emerging Markets</h1>
+        <p>We help 200M+ underbanked consumers understand, build, and protect their credit — unlocking fair access to financial products.</p>
+        <div class="invest-hero-actions">
+          <a href="#ask" class="btn btn-primary btn-large">Our Raise & Use of Funds</a>
+          <a href="#traction" class="btn btn-outline btn-large">See Traction</a>
+        </div>
+        <div class="invest-metrics">
+          <div class="metric"><div class="value">50K+</div><div class="label">MAUs</div></div>
+          <div class="metric"><div class="value">4.9★</div><div class="label">App Rating</div></div>
+          <div class="metric"><div class="value">35%</div><div class="label">6-mo Retention</div></div>
+        </div>
+      </div>
+    </div>
+    <div class="invest-hero-bg"></div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Problem</h2>
+        <p class="section-description">Credit in emerging markets is opaque, fragmented, and reactive. Consumers lack visibility, lenders lack signals.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="card">
+          <h3>Low Credit Literacy</h3>
+          <p>Most consumers don’t know what drives scores or how to improve them. Small mistakes have outsized consequences.</p>
+        </div>
+        <div class="card">
+          <h3>Reactive Disputes</h3>
+          <p>Errors and fraud are discovered late. Resolution is manual, slow, and expensive for both users and bureaus.</p>
+        </div>
+        <div class="card">
+          <h3>Thin Files</h3>
+          <p>Limited data means worthy borrowers are mispriced or rejected. Lenders struggle to acquire and retain safely.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Solution</h2>
+        <p class="section-description">A consumer-first Credit OS that monitors, explains, and improves credit — while generating verified, real-time signals for partners.</p>
+      </div>
+      <div class="feature-columns">
+        <div class="feature-col">
+          <span class="material-symbols-rounded icon">insights</span>
+          <h3>Monitoring & Insights</h3>
+          <p>Real-time alerts, score simulation, and personalized playbooks that drive measurable behavior change.</p>
+        </div>
+        <div class="feature-col">
+          <span class="material-symbols-rounded icon">gavel</span>
+          <h3>Disputes & Protection</h3>
+          <p>Guided workflows, templated filings, and identity protection reduce errors and fraud losses.</p>
+        </div>
+        <div class="feature-col">
+          <span class="material-symbols-rounded icon">verified</span>
+          <h3>Signal Layer</h3>
+          <p>Consent-driven data products that help banks price risk better and approve more fairly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="market" class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Market</h2>
+        <p class="section-description">Egypt, MENA, and other emerging markets: >200M addressable consumers and fast digitization of credit.</p>
+      </div>
+      <div class="stats-tiles">
+        <div class="tile"><div class="tile-value">200M+</div><div class="tile-label">TAM Consumers</div></div>
+        <div class="tile"><div class="tile-value">$3B+</div><div class="tile-label">Annual B2B spend</div></div>
+        <div class="tile"><div class="tile-value">2.5x</div><div class="tile-label">Fintech growth vs GDP</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="traction" class="section-white">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Traction</h2>
+        <p class="section-description">Early proof of product-market fit and efficient growth.</p>
+      </div>
+      <div class="traction-grid">
+        <div class="traction-card"><h3>Users</h3><p>50K+ MAUs, 180K total signups, organic-first growth.</p></div>
+        <div class="traction-card"><h3>Engagement</h3><p>35% 6-month retention; weekly active users up 22% QoQ.</p></div>
+        <div class="traction-card"><h3>B2B</h3><p>4 pilot partners evaluating consented signal APIs.</p></div>
+        <div class="traction-card"><h3>Unit Economics</h3><p>Payback < 3 months on paid channels in tests.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Business Model</h2>
+        <p class="section-description">Freemium consumer app + B2B data products.</p>
+      </div>
+      <div class="bm-grid">
+        <div class="bm-item"><h3>Premium</h3><p>Monthly subscription for advanced analytics, alerts, simulator, and protection.</p></div>
+        <div class="bm-item"><h3>Referrals</h3><p>Curated lender marketplace with aligned incentives and transparent education.</p></div>
+        <div class="bm-item"><h3>APIs</h3><p>Consent-driven risk and affordability signals for banks, BNPL, and lenders.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Competition & Moat</h2>
+        <p class="section-description">We win by being consumer-first and turning engagement into verified, consented signals.</p>
+      </div>
+      <ul class="list-checks">
+        <li>Superior UX and education increase retention and data depth.</li>
+        <li>Local dispute workflows and partnerships reduce friction.</li>
+        <li>Privacy-by-design consent layer builds durable trust and defensibility.</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="ask" class="section-light">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Our Ask & Use of Funds</h2>
+        <p class="section-description">Raising $2.5M seed to scale consumer growth and data products.</p>
+      </div>
+      <div class="use-of-funds">
+        <div class="uof-item">
+          <h3>Product & Data (40%)</h3>
+          <p>Expand simulator, protection, and signal APIs; ML for proactive risk.</p>
+        </div>
+        <div class="uof-item">
+          <h3>Growth (35%)</h3>
+          <p>Performance marketing, partnerships with lenders and employers.</p>
+        </div>
+        <div class="uof-item">
+          <h3>Operations (25%)</h3>
+          <p>Compliance, customer support, and dispute resolution capabilities.</p>
+        </div>
+      </div>
+      <div class="invest-cta">
+        <a href="#contact" class="btn btn-primary btn-large">Get in Touch</a>
+        <a href="register.html" class="btn btn-outline btn-large">Try the Product</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section-white">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Team</h2>
+        <p class="section-description">Experienced fintech, data, and product builders with local insight.</p>
+      </div>
+      <div class="team-grid">
+        <div class="team-card"><div class="avatar">A</div><h3>Amir</h3><p>CEO — ex-banking, 10y credit products</p></div>
+        <div class="team-card"><div class="avatar">N</div><h3>Nada</h3><p>COO — ops & compliance, bureaus</p></div>
+        <div class="team-card"><div class="avatar">M</div><h3>Mostafa</h3><p>CTO — data platforms, ML</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Let’s build fair credit together</h2>
+        <p class="cta-description">Interested in the round or a partnership? We’d love to chat.</p>
+        <div class="cta-actions">
+          <a href="mailto:invest@credify.app" class="btn btn-primary btn-large">invest@credify.app</a>
+          <a href="index.html#features" class="btn btn-outline btn-large">Explore Features</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Credify" class="logo-img" />
+            <span class="logo-text">Credify</span>
+          </div>
+          <p class="footer-description">Consumer-first Credit OS for emerging markets.</p>
+          <div class="social-links">
+            <a href="#" class="social-link"><span class="material-symbols-rounded">linkedin</span></a>
+            <a href="#" class="social-link"><span class="material-symbols-rounded">twitter</span></a>
+          </div>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="index.html#how-it-works">How It Works</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="investment.html">Investment</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2024 Credify. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="investment.js"></script>
+</body>
+</html>
+

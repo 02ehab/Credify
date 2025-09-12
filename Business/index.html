@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Credify - Institutional Credit Management</title>
+  <meta name="description" content="Empower your institution with Credify. Monitor, analyze, and optimize your credit portfolio with real-time insights and expert guidance for businesses.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      
+      <!-- Guest navbar (default) -->
+      <div class="nav-menu" id="navMenuGuest">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="investment.html" class="nav-link">Investment</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+      
+      <!-- Authenticated navbar (hidden until login) -->
+      <div class="nav-menu" id="navMenuAuth" style="display:none;">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+      
+      <div class="nav-actions">
+        <!-- Guest actions -->
+        <div id="guestActions">
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+          <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+        <!-- Auth actions -->
+        <div id="authActions" style="display:none;">
+          <button class="btn btn-outline" id="logoutBtn">
+            <span class="material-symbols-rounded">logout</span>
+            Logout
+          </button>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Credify" class="logo-img" />
+        <span class="logo-text">Credify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <!-- Guest drawer -->
+      <div id="drawerGuest">
+        <a href="#home" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="#features" class="drawer-link"><span class="material-symbols-rounded">star</span> Features</a>
+        <a href="#how-it-works" class="drawer-link"><span class="material-symbols-rounded">list_alt</span> How It Works</a>
+        <a href="#pricing" class="drawer-link"><span class="material-symbols-rounded">sell</span> Pricing</a>
+        <a href="investment.html" class="drawer-link"><span class="material-symbols-rounded">trending_up</span> Investment</a>
+        <a href="#about" class="drawer-link"><span class="material-symbols-rounded">info</span> About</a>
+        <a href="#contact" class="drawer-link"><span class="material-symbols-rounded">call</span> Contact</a>
+        <a href="login.html" class="drawer-link"><span class="material-symbols-rounded">login</span> Sign In</a>
+        <a href="register.html" class="drawer-link"><span class="material-symbols-rounded">person_add</span> Get Started</a>
+      </div>
+      <!-- Auth drawer -->
+      <div id="drawerAuth" style="display:none;">
+        <a href="index.html" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="credit-overview.html" class="drawer-link"><span class="material-symbols-rounded">credit_score</span> Credit Overview</a>
+        <a href="notifications.html" class="drawer-link"><span class="material-symbols-rounded">notifications</span> Notifications</a>
+        <a href="profile.html" class="drawer-link"><span class="material-symbols-rounded">person</span> Profile</a>
+        <button class="drawer-link" id="drawerLogout" style="background:none;border:none;cursor:pointer;">
+          <span class="material-symbols-rounded">logout</span> Logout
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Empower Your Institution's
+          <span class="gradient-text">Credit Strategy</span>
+        </h1>
+        <p class="hero-description">
+          Monitor your credit portfolio in real-time, get comprehensive insights, and optimize your financial strategy. Join leading institutions who trust Credify for enterprise credit management.
+        </p>
+        <div class="hero-actions">
+          <a href="register.html" class="btn btn-primary btn-large">
+            <span class="material-symbols-rounded">rocket_launch</span>
+            Start Free Trial
+          </a>
+          <a href="#how-it-works" class="btn btn-outline btn-large">
+            <span class="material-symbols-rounded">play_circle</span>
+            Watch Demo
+          </a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">500+</div>
+            <div class="stat-label">Institutions</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">4.9★</div>
+            <div class="stat-label">Client Satisfaction</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24/7</div>
+            <div class="stat-label">Support</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="hero-visual">
+        <div class="hero-image">
+          <div class="credit-score-card">
+            <div class="score-circle">
+              <div class="score-number">750</div>
+              <div class="score-label">Credit Score</div>
+            </div>
+            <div class="score-details">
+              <div class="score-change positive">
+                <span class="material-symbols-rounded">trending_up</span>
+                +25 points
+              </div>
+              <div class="score-date">Updated today</div>
+            </div>
+          </div>
+          <div class="floating-card card-1">
+            <span class="material-symbols-rounded">notifications</span>
+            <div>Score Alert</div>
+          </div>
+          <div class="floating-card card-2">
+            <span class="material-symbols-rounded">insights</span>
+            <div>Smart Tips</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="hero-bg">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="bg-shape bg-shape-3"></div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section id="features" class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Why Choose Credify?</h2>
+        <p class="section-description">
+          Enterprise-grade tools and insights to help institutions understand, monitor, and optimize their credit portfolios
+        </p>
+      </div>
+      
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">monitoring</span>
+          </div>
+          <h3 class="feature-title">Real-time Monitoring</h3>
+          <p class="feature-description">
+            Get instant alerts when your credit score changes and track your progress over time with detailed analytics.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">security</span>
+          </div>
+          <h3 class="feature-title">Bank-level Security</h3>
+          <p class="feature-description">
+            Your data is protected with enterprise-grade encryption and security measures that exceed industry standards.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">insights</span>
+          </div>
+          <h3 class="feature-title">Smart Insights</h3>
+          <p class="feature-description">
+            Receive personalized recommendations and actionable advice to improve your credit score effectively.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">support_agent</span>
+          </div>
+          <h3 class="feature-title">Expert Support</h3>
+          <p class="feature-description">
+            Access to credit experts and customer support team ready to help you with any questions or concerns.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">analytics</span>
+          </div>
+          <h3 class="feature-title">Detailed Analytics</h3>
+          <p class="feature-description">
+            Understand what affects your credit score with comprehensive reports and trend analysis.
+          </p>
+        </div>
+        
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">mobile_friendly</span>
+          </div>
+          <h3 class="feature-title">Mobile First</h3>
+          <p class="feature-description">
+            Access your credit information anywhere, anytime with our responsive mobile and web applications.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section id="how-it-works" class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">How Credify Works for Institutions</h2>
+        <p class="section-description">
+          Get your institution up and running with our enterprise-grade three-step implementation process
+        </p>
+      </div>
+
+      <div class="steps-container">
+        <div class="step-item">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="step-title">Enterprise Setup</h3>
+            <p class="step-description">
+              Complete institutional onboarding with dedicated account management. Secure enterprise-grade access and compliance setup.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="step-title">Portfolio Integration</h3>
+            <p class="step-description">
+              Seamlessly integrate your credit portfolio data through secure APIs and automated data feeds for comprehensive monitoring.
+            </p>
+          </div>
+        </div>
+
+        <div class="step-item">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="step-title">Strategic Optimization</h3>
+            <p class="step-description">
+              Leverage advanced analytics and AI-driven insights to optimize your credit strategy and maximize portfolio performance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Section -->
+  <section id="pricing" class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Enterprise Pricing Plans</h2>
+        <p class="section-description">
+          Scalable solutions designed for institutions of all sizes. All plans include enterprise-grade security and compliance.
+        </p>
+      </div>
+
+      <div class="pricing-grid">
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="plan-name">Starter</h3>
+            <div class="plan-price">
+              <span class="price-amount">E£99</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Portfolio monitoring up to 1,000 accounts</li>
+            <li>Monthly performance reports</li>
+            <li>Basic risk analytics</li>
+            <li>Email support</li>
+            <li>API access</li>
+          </ul>
+          <a href="register.html" class="btn btn-outline btn-full">Start Free Trial</a>
+        </div>
+
+        <div class="pricing-card featured">
+          <div class="pricing-badge">Most Popular</div>
+          <div class="pricing-header">
+            <h3 class="plan-name">Professional</h3>
+            <div class="plan-price">
+              <span class="price-amount">E£299</span>
+              <span class="price-period">/month</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Everything in Starter</li>
+            <li>Portfolio monitoring up to 10,000 accounts</li>
+            <li>Real-time risk alerts</li>
+            <li>Advanced analytics & AI insights</li>
+            <li>Custom reporting dashboards</li>
+            <li>Priority phone support</li>
+            <li>Dedicated account manager</li>
+          </ul>
+          <a href="register.html" class="btn btn-primary btn-full">Start Free Trial</a>
+        </div>
+
+        <div class="pricing-card">
+          <div class="pricing-header">
+            <h3 class="plan-name">Enterprise</h3>
+            <div class="plan-price">
+              <span class="price-amount">Custom</span>
+              <span class="price-period">Pricing</span>
+            </div>
+          </div>
+          <ul class="plan-features">
+            <li>Everything in Professional</li>
+            <li>Unlimited portfolio monitoring</li>
+            <li>Custom integrations & APIs</li>
+            <li>White-label solutions</li>
+            <li>24/7 dedicated support</li>
+            <li>On-premise deployment options</li>
+            <li>Custom SLA agreements</li>
+          </ul>
+          <a href="register.html" class="btn btn-outline btn-full">Contact Sales</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">What Our Institutional Clients Say</h2>
+        <p class="section-description">
+          Join leading financial institutions who trust Credify for enterprise credit management and portfolio optimization
+        </p>
+      </div>
+
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Credify transformed our risk assessment process. The AI-driven insights helped us reduce default rates by 30% while improving portfolio performance."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">RB</div>
+            <div class="author-info">
+              <div class="author-name">Robert Banks</div>
+              <div class="author-title">Chief Risk Officer, Metro Finance</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"The real-time monitoring and automated reporting capabilities have streamlined our compliance processes. Implementation was seamless and support is outstanding."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">LC</div>
+            <div class="author-info">
+              <div class="author-name">Lisa Chen</div>
+              <div class="author-title">VP of Operations, Capital Trust Bank</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <div class="testimonial-content">
+            <p>"Credify's enterprise-grade security and scalability perfectly match our needs. The custom integrations have enhanced our decision-making capabilities significantly."</p>
+          </div>
+          <div class="testimonial-author">
+            <div class="author-avatar">DM</div>
+            <div class="author-info">
+              <div class="author-name">David Martinez</div>
+              <div class="author-title">CTO, Global Credit Solutions</div>
+            </div>
+            <div class="rating">★★★★★</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta">
+    <div class="container">
+      <div class="cta-content">
+        <h2 class="cta-title">Ready to Transform Your Institution's Credit Management?</h2>
+        <p class="cta-description">
+          Join leading financial institutions who are optimizing their credit portfolios and maximizing performance with Credify's enterprise solutions.
+        </p>
+        <div class="cta-actions">
+          <a href="register.html" class="btn btn-primary btn-large">Start Enterprise Trial</a>
+          <a href="#contact" class="btn btn-outline btn-large">Schedule Demo</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Credify" class="logo-img" />
+            <span class="logo-text">Credify</span>
+          </div>
+          <p class="footer-description">
+            Empowering individuals to take control of their credit journey with innovative tools and expert guidance.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">facebook</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">twitter</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">linkedin</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">instagram</span>
+            </a>
+          </div>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="investment.html">Investment</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <p>&copy; 2024 Credify. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    (function() {
+      const isAuthed = localStorage.getItem('isAuthenticated') === 'true';
+      const guestMenu = document.getElementById('navMenuGuest');
+      const authMenu = document.getElementById('navMenuAuth');
+      const guestActions = document.getElementById('guestActions');
+      const authActions = document.getElementById('authActions');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const drawerGuest = document.getElementById('drawerGuest');
+      const drawerAuth = document.getElementById('drawerAuth');
+      const drawerLogout = document.getElementById('drawerLogout');
+
+      const applyState = (authed) => {
+        if (authed) {
+          if (guestMenu) guestMenu.style.display = 'none';
+          if (authMenu) authMenu.style.display = '';
+          if (guestActions) guestActions.style.display = 'none';
+          if (authActions) authActions.style.display = 'flex';
+          if (drawerGuest) drawerGuest.style.display = 'none';
+          if (drawerAuth) drawerAuth.style.display = 'block';
+        } else {
+          if (guestMenu) guestMenu.style.display = '';
+          if (authMenu) authMenu.style.display = 'none';
+          if (guestActions) guestActions.style.display = 'flex';
+          if (authActions) authActions.style.display = 'none';
+          if (drawerGuest) drawerGuest.style.display = 'block';
+          if (drawerAuth) drawerAuth.style.display = 'none';
+        }
+      };
+
+      applyState(isAuthed);
+
+      const doLogout = () => {
+        localStorage.removeItem('isAuthenticated');
+        applyState(false);
+        window.location.href = 'index.html';
+      };
+
+      if (logoutBtn) logoutBtn.addEventListener('click', doLogout);
+      if (drawerLogout) drawerLogout.addEventListener('click', doLogout);
+    })();
+  </script>
+
+  <script>
+    // Drawer toggle
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      if (navToggle) navToggle.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    })();
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
