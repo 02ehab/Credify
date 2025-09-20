@@ -6,6 +6,7 @@
   <title>Profile - Credify</title>
   <link rel="stylesheet" href="profile.css">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="chatbot.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
 </head>
 <body>
@@ -178,7 +179,31 @@
         </div>
       </div>
     </section>
+<div id="chatbot-container">
+     
+      <div class="chatbot-icon" onclick="toggleChatbox()">
+        <span class="material-symbols-rounded">support_agent</span>
+      </div>
 
+      <div id="chatPopup" class="chatbot-popup hidden">
+        <div class="chatbot-header">
+          <span>Credify Assistant 🤖</span>
+          <button onclick="toggleChatbox()">
+            <span class="material-symbols-rounded">close</span>
+          </button>
+        </div>
+        <div class="chatbot-messages" id="chatMessages">
+          <p>👋 Hello! How can I help you with your credit management today?</p>
+        </div>
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Type your message..."
+          onkeydown="if(event.key==='Enter') sendChatMessage()"
+        />
+        <button onclick="sendChatMessage()">Send</button>
+      </div>
+    </div>
     <!-- Footer -->
     <footer class="footer">
       <div class="footer-container">
@@ -203,7 +228,7 @@
     </footer>
   </div> <!-- Close main-content-wrapper -->
 
-  
+  <script src="chatbot.js"></script>
   <script src="profile.js"></script>
   <script>
     (function() {
@@ -240,5 +265,6 @@
 
 </body>
 </html>
+
 
 
