@@ -1,0 +1,23 @@
+<!-- chatbot.html -->
+<div class="chatbot-icon" onclick="toggleChatbox()">
+  <span class="material-symbols-rounded">support_agent</span>
+</div>
+
+<div id="chatPopup" class="chatbot-popup hidden">
+  <div class="chatbot-header">
+    <span>Credify Assistant 🤖</span>
+    <button onclick="toggleChatbox()">
+      <span class="material-symbols-rounded">close</span>
+    </button>
+  </div>
+  <div class="chatbot-messages" id="chatMessages">
+    <p>👋 Hello! How can I help you with your credit management today?</p>
+  </div>
+  <input
+    type="text"
+    id="chatInput"
+    placeholder="Type your message..."
+    onkeydown="if(event.key==='Enter') sendChatMessage()"
+  />
+  <button onclick="sendChatMessage()">Send</button>
+</div>
