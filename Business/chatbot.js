@@ -106,7 +106,7 @@ function smartReply(rawMsg) {
       reply: () => {
         const name = CHAT_STATE.userName ? `, ${CHAT_STATE.userName}` : "";
         return {
-          html: `🤖 Hello${name}! Welcome to Credify. How can I assist you with your credit management today?`,
+          html: `🤖 Hello${name}! Welcome to Nebify. How can I assist you with your credit management today?`,
           suggestions: ["Credit Score", "Portfolio", "Risk Assessment", "Account Help"]
         };
       }
@@ -259,7 +259,7 @@ function smartReply(rawMsg) {
       name: "features",
       test: () => /(features|capabilities|tools|functions|what can you do)/i.test(rawMsg),
       reply: () => ({
-        html: `🚀 Credify offers comprehensive credit management tools: real-time monitoring, predictive analytics, risk assessment, automated reporting, and expert insights. Explore all features in our <a href="#features" target="_blank">Features</a> section.`,
+        html: `🚀 Nebify offers comprehensive credit management tools: real-time monitoring, predictive analytics, risk assessment, automated reporting, and expert insights. Explore all features in our <a href="#features" target="_blank">Features</a> section.`,
         suggestions: ["Monitoring", "Analytics", "Risk Assessment", "Reporting"]
       })
     },
@@ -322,3 +322,4 @@ document.getElementById("chatInput").addEventListener("keypress", function(e) {
     sendChatMessage();
   }
 });
+
