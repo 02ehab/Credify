@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Collection Tools - Nebify</title>
+  <meta name="description" content="Automate your collection process with smart reminders, bulk actions, and professional communication tools.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="pages.css">
+  <link rel="stylesheet" href="chatbot.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Nebify" class="logo-img" />
+        <span class="logo-text">Nebify</span>
+      </div>
+
+      <!-- Guest navbar (default) -->
+      <div class="nav-menu" id="navMenuGuest">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="investment.html" class="nav-link">Investment</a>
+        <a href="risk-analysis.html" class="nav-link">Risk Analysis</a>
+        <a href="collection-tools.html" class="nav-link active">Collection Tools</a>
+        <a href="market-insights.html" class="nav-link">Market Insights</a>
+        <a href="customer-segmentation.html" class="nav-link">Customer Segmentation</a>
+      </div>
+
+      <!-- Authenticated navbar (hidden until login) -->
+      <div class="nav-menu" id="navMenuAuth" style="display:none;">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="customer-records.html" class="nav-link">customer records</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Guest actions -->
+        <div id="guestActions">
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+          <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+        <!-- Auth actions -->
+        <div id="authActions" style="display:none;">
+          <button class="btn btn-outline" id="logoutBtn">
+            <span class="material-symbols-rounded">logout</span>
+            Logout
+          </button>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Nebify" class="logo-img" />
+        <span class="logo-text">Nebify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <!-- Guest drawer -->
+      <div id="drawerGuest">
+        <a href="index.html" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="investment.html" class="drawer-link"><span class="material-symbols-rounded">trending_up</span> Investment</a>
+        <a href="risk-analysis.html" class="drawer-link"><span class="material-symbols-rounded">analytics</span> Risk Analysis</a>
+        <a href="collection-tools.html" class="drawer-link"><span class="material-symbols-rounded">build</span> Collection Tools</a>
+        <a href="market-insights.html" class="drawer-link"><span class="material-symbols-rounded">insights</span> Market Insights</a>
+        <a href="customer-segmentation.html" class="drawer-link"><span class="material-symbols-rounded">groups</span> Customer Segmentation</a>
+        <a href="login.html" class="drawer-link"><span class="material-symbols-rounded">login</span> Sign In</a>
+        <a href="register.html" class="drawer-link"><span class="material-symbols-rounded">person_add</span> Get Started</a>
+      </div>
+      <!-- Auth drawer -->
+      <div id="drawerAuth" style="display:none;">
+        <a href="index.html" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="credit-overview.html" class="drawer-link"><span class="material-symbols-rounded">credit_score</span> Credit Overview</a>
+        <a href="customer-records.html" class="drawer-link">
+  <span class="material-symbols-rounded">assignment</span>
+   customer records
+</a>
+        <a href="notifications.html" class="drawer-link"><span class="material-symbols-rounded">notifications</span> Notifications</a>
+        <a href="profile.html" class="drawer-link"><span class="material-symbols-rounded">person</span> Profile</a>
+        <button class="drawer-link" id="drawerLogout" style="background:none;border:none;cursor:pointer;">
+          <span class="material-symbols-rounded">logout</span> Logout
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-container">
+      <div class="hero-content">
+        <h1 class="hero-title">
+          Collection
+          <span class="gradient-text">Tools</span>
+        </h1>
+        <p class="hero-description">
+          Automate your collection process with intelligent reminders, bulk actions, and professional communication templates.
+        </p>
+        <div class="hero-actions">
+          <button class="btn btn-primary btn-large" onclick="createReminder()">
+            <span class="material-symbols-rounded">add</span>
+            New Reminder
+          </button>
+          <button class="btn btn-outline btn-large" onclick="bulkActions()">
+            <span class="material-symbols-rounded">batch_prediction</span>
+            Bulk Actions
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <div class="stat-number">156</div>
+            <div class="stat-label">Active Reminders</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">89%</div>
+            <div class="stat-label">Success Rate</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Response Time</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image">
+          <div class="credit-score-card">
+            <div class="score-circle">
+              <div class="score-number">89</div>
+              <div class="score-label">Success Rate</div>
+            </div>
+            <div class="score-details">
+              <div class="score-change positive">
+                <span class="material-symbols-rounded">trending_up</span>
+                +5% this month
+              </div>
+              <div class="score-date">Updated today</div>
+            </div>
+          </div>
+          <div class="floating-card card-1">
+            <span class="material-symbols-rounded">notifications</span>
+            <div>Auto Reminders</div>
+          </div>
+          <div class="floating-card card-2">
+            <span class="material-symbols-rounded">campaign</span>
+            <div>Bulk Actions</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Background Elements -->
+    <div class="hero-bg">
+      <div class="bg-shape bg-shape-1"></div>
+      <div class="bg-shape bg-shape-2"></div>
+      <div class="bg-shape bg-shape-3"></div>
+    </div>
+  </section>
+
+  <!-- Automated Reminders Section -->
+  <section class="features">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Automated Reminders</h2>
+        <p class="section-description">
+          Set up intelligent reminder sequences across multiple channels to maximize collection success
+        </p>
+      </div>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">sms</span>
+          </div>
+          <h3 class="feature-title">SMS Reminders</h3>
+          <p class="feature-description">
+            Instant SMS notifications with high open rates and quick response times.
+          </p>
+          <div class="kpi-value">
+            <span class="kpi-number">94%</span>
+            <span class="kpi-unit">Open Rate</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">mail</span>
+          </div>
+          <h3 class="feature-title">Email Campaigns</h3>
+          <p class="feature-description">
+            Professional email templates with detailed payment information and options.
+          </p>
+          <div class="kpi-value">
+            <span class="kpi-number">67%</span>
+            <span class="kpi-unit">Open Rate</span>
+          </div>
+        </div>
+
+        <div class="feature-card">
+          <div class="feature-icon">
+            <span class="material-symbols-rounded">notifications</span>
+          </div>
+          <h3 class="feature-title">Push Notifications</h3>
+          <p class="feature-description">
+            Mobile push notifications for immediate attention and higher engagement.
+          </p>
+          <div class="kpi-value">
+            <span class="kpi-number">78%</span>
+            <span class="kpi-unit">Click Rate</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Create Reminder Form -->
+  <section class="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Schedule New Reminder</h2>
+        <p class="section-description">
+          Create automated reminders with customizable messages and delivery schedules
+        </p>
+      </div>
+
+      <div class="reminder-form-container">
+        <form class="reminder-form" onsubmit="scheduleReminder(event)">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="customerName">Customer Name</label>
+              <input type="text" id="customerName" name="customerName" required>
+            </div>
+            <div class="form-group">
+              <label for="reminderType">Reminder Type</label>
+              <select id="reminderType" name="reminderType" required>
+                <option value="sms">SMS</option>
+                <option value="email">Email</option>
+                <option value="push">Push Notification</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="reminderDate">Reminder Date</label>
+              <input type="datetime-local" id="reminderDate" name="reminderDate" required>
+            </div>
+            <div class="form-group">
+              <label for="priority">Priority Level</label>
+              <select id="priority" name="priority" required>
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+                <option value="urgent">Urgent</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" rows="4" placeholder="Enter your reminder message..." required></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" class="btn btn-outline" onclick="loadTemplate()">Load Template</button>
+            <button type="button" class="btn btn-outline" onclick="previewMessage()">Preview</button>
+            <button type="submit" class="btn btn-primary">Schedule Reminder</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scheduled Reminders Table -->
+  <section class="pricing">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">Scheduled Reminders</h2>
+        <p class="section-description">
+          Monitor and manage all your scheduled reminders with real-time status updates
+        </p>
+      </div>
+
+      <table class="reminders-table">
+        <thead>
+          <tr>
+            <th>Customer</th>
+            <th>Type</th>
+            <th>Priority</th>
+            <th>Scheduled Date</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Ahmed Hassan</td>
+            <td><span class="type-badge sms">SMS</span></td>
+            <td><span class="priority-badge high">High</span></td>
+            <td>2024-01-15 14:30</td>
+            <td><span class="status-badge pending">Pending</span></td>
+            <td>
+              <button class="btn btn-outline btn-small" onclick="editReminder('1')">
+                <span class="material-symbols-rounded">edit</span>
+              </button>
+              <button class="btn btn-outline btn-small" onclick="cancelReminder('1')">
+                <span class="material-symbols-rounded">cancel</span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Sarah Johnson</td>
+            <td><span class="type-badge email">Email</span></td>
+            <td><span class="priority-badge medium">Medium</span></td>
+            <td>2024-01-14 09:00</td>
+            <td><span class="status-badge sent">Sent</span></td>
+            <td>
+              <button class="btn btn-outline btn-small" onclick="resendReminder('2')">
+                <span class="material-symbols-rounded">send</span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Mohamed Ali</td>
+            <td><span class="type-badge push">Push</span></td>
+            <td><span class="priority-badge urgent">Urgent</span></td>
+            <td>2024-01-13 16:45</td>
+            <td><span class="status-badge sent">Sent</span></td>
+            <td>
+              <button class="btn btn-outline btn-small" onclick="resendReminder('3')">
+                <span class="material-symbols-rounded">send</span>
+              </button>
+            </td>
+          </tr>
+          <tr>
+            <td>Lisa Chen</td>
+            <td><span class="type-badge sms">SMS</span></td>
+            <td><span class="priority-badge low">Low</span></td>
+            <td>2024-01-12 11:20</td>
+            <td><span class="status-badge failed">Failed</span></td>
+            <td>
+              <button class="btn btn-outline btn-small" onclick="retryReminder('4')">
+                <span class="material-symbols-rounded">replay</span>
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Nebify" class="logo-img" />
+            <span class="logo-text">Nebify</span>
+          </div>
+          <p class="footer-description">
+            Streamline your collection process with intelligent automation and professional communication tools.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">facebook</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">twitter</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">linkedin</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="risk-analysis.html">Risk Analysis</a></li>
+            <li><a href="collection-tools.html">Collection Tools</a></li>
+            <li><a href="market-insights.html">Market Insights</a></li>
+            <li><a href="customer-segmentation.html">Customer Segmentation</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="investment.html">Investment</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Nebify. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chatbot.js"></script>
+  <script>
+    // Authentication and navigation logic
+    (function() {
+      const isAuthed = localStorage.getItem('isAuthenticated') === 'true';
+      const guestMenu = document.getElementById('navMenuGuest');
+      const authMenu = document.getElementById('navMenuAuth');
+      const guestActions = document.getElementById('guestActions');
+      const authActions = document.getElementById('authActions');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const drawerGuest = document.getElementById('drawerGuest');
+      const drawerAuth = document.getElementById('drawerAuth');
+      const drawerLogout = document.getElementById('drawerLogout');
+
+      const applyState = (authed) => {
+        if (authed) {
+          if (guestMenu) guestMenu.style.display = 'none';
+          if (authMenu) authMenu.style.display = '';
+          if (guestActions) guestActions.style.display = 'none';
+          if (authActions) authActions.style.display = 'flex';
+          if (drawerGuest) drawerGuest.style.display = 'none';
+          if (drawerAuth) drawerAuth.style.display = 'block';
+        } else {
+          if (guestMenu) guestMenu.style.display = '';
+          if (authMenu) authMenu.style.display = 'none';
+          if (guestActions) guestActions.style.display = 'flex';
+          if (authActions) authActions.style.display = 'none';
+          if (drawerGuest) drawerGuest.style.display = 'block';
+          if (drawerAuth) drawerAuth.style.display = 'none';
+        }
+      };
+
+      applyState(isAuthed);
+
+      const doLogout = () => {
+        localStorage.removeItem('isAuthenticated');
+        applyState(false);
+        window.location.href = 'index.html';
+      };
+
+      if (logoutBtn) logoutBtn.addEventListener('click', doLogout);
+      if (drawerLogout) drawerLogout.addEventListener('click', doLogout);
+    })();
+
+    // Mobile drawer functionality
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      if (navToggle) navToggle.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    })();
+
+    // Collection tools specific functions
+    function createReminder() {
+      document.querySelector('.reminder-form-container').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function bulkActions() {
+      alert('Opening bulk actions panel... This would typically allow you to select multiple customers and perform batch operations like sending reminders or updating statuses.');
+    }
+
+    function scheduleReminder(event) {
+      event.preventDefault();
+      alert('Reminder scheduled successfully! This would typically save the reminder to your database and queue it for delivery.');
+    }
+
+    function loadTemplate() {
+      const reminderType = document.getElementById('reminderType').value;
+      const messageField = document.getElementById('message');
+
+      const templates = {
+        sms: 'Dear Customer, your payment of $X is due on DATE. Please pay to avoid late fees. Click LINK to pay now.',
+        email: 'Dear Customer,\n\nWe hope this email finds you well. This is a friendly reminder that your payment of $X is due on DATE.\n\nTo avoid any late fees or service interruptions, please ensure payment is made by the due date.\n\nYou can pay online at: LINK\n\nIf you have already made this payment, please disregard this notice.\n\nThank you for your business!\n\nBest regards,\nNebify Team',
+        push: 'Payment Reminder: $X due on DATE. Tap to pay now.'
+      };
+
+      messageField.value = templates[reminderType];
+    }
+
+    function previewMessage() {
+      const message = document.getElementById('message').value;
+      alert('Message Preview:\n\n' + message);
+    }
+
+    function editReminder(reminderId) {
+      alert(`Editing reminder ${reminderId}. This would typically open an edit form with the current reminder details.`);
+    }
+
+    function cancelReminder(reminderId) {
+      if (confirm('Are you sure you want to cancel this reminder?')) {
+        alert(`Reminder ${reminderId} cancelled successfully.`);
+      }
+    }
+
+    function resendReminder(reminderId) {
+      alert(`Resending reminder ${reminderId}. This would typically queue the reminder for immediate delivery.`);
+    }
+
+    function retryReminder(reminderId) {
+      alert(`Retrying reminder ${reminderId}. This would typically attempt to resend the failed reminder.`);
+    }
+  </script>
+</body>
+</html>
