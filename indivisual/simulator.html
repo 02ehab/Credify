@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Loan Simulator - Nebify</title>
+  <meta name="description" content="Calculate loan payments, assess risk, and simulate different financial scenarios with Nebify's loan simulator.">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+  <link rel="stylesheet" href="chatbot.css">
+  <link rel="stylesheet" href="simulator.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Nebify" class="logo-img" />
+        <span class="logo-text">Nebify</span>
+      </div>
+
+      <!-- Guest navbar (default) -->
+      <div class="nav-menu" id="navMenuGuest">
+        <a href="#home" class="nav-link active">Home</a>
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#how-it-works" class="nav-link">How It Works</a>
+        <a href="#pricing" class="nav-link">Pricing</a>
+        <a href="investment.html" class="nav-link">Investment</a>
+        <a href="#about" class="nav-link">About</a>
+        <a href="#contact" class="nav-link">Contact</a>
+      </div>
+
+      <!-- Authenticated navbar (hidden until login) -->
+      <div class="nav-menu" id="navMenuAuth" style="display:none;">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="credit-overview.html" class="nav-link">Credit Overview</a>
+        <a href="financial_health.html" class="nav-link">Financial Health</a>
+        <a href="rewards_trust.html" class="nav-link">Rewards & Trust</a>
+        <a href="simulator.html" class="nav-link active">Simulator</a>
+        <a href="disputes.html" class="nav-link">Disputes</a>
+        <a href="consents.html" class="nav-link">Consents</a>
+        <a href="notifications.html" class="nav-link">Notifications</a>
+        <a href="profile.html" class="nav-link">Profile</a>
+      </div>
+
+      <div class="nav-actions">
+        <!-- Guest actions -->
+        <div id="guestActions">
+          <a href="login.html" class="btn btn-outline">Sign In</a>
+          <a href="register.html" class="btn btn-primary">Get Started</a>
+        </div>
+        <!-- Auth actions -->
+        <div id="authActions" style="display:none;">
+          <button class="btn btn-outline" id="logoutBtn">
+            <span class="material-symbols-rounded">logout</span>
+            Logout
+          </button>
+        </div>
+        <button class="nav-toggle" id="navToggle">
+          <span class="material-symbols-rounded">menu</span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Mobile Drawer Side Menu -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+  <aside class="mobile-drawer" id="mobileDrawer" aria-hidden="true">
+    <div class="drawer-header">
+      <div class="nav-logo">
+        <img src="logo.png" alt="Nebify" class="logo-img" />
+        <span class="logo-text">Nebify</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close menu">
+        <span class="material-symbols-rounded">close</span>
+      </button>
+    </div>
+    <nav class="drawer-menu">
+      <!-- Guest drawer -->
+      <div id="drawerGuest">
+        <a href="#home" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="#features" class="drawer-link"><span class="material-symbols-rounded">star</span> Features</a>
+        <a href="#how-it-works" class="drawer-link"><span class="material-symbols-rounded">list_alt</span> How It Works</a>
+        <a href="#pricing" class="drawer-link"><span class="material-symbols-rounded">sell</span> Pricing</a>
+        <a href="investment.html" class="drawer-link"><span class="material-symbols-rounded">trending_up</span> Investment</a>
+        <a href="#about" class="drawer-link"><span class="material-symbols-rounded">info</span> About</a>
+        <a href="#contact" class="drawer-link"><span class="material-symbols-rounded">call</span> Contact</a>
+        <a href="login.html" class="drawer-link"><span class="material-symbols-rounded">login</span> Sign In</a>
+        <a href="register.html" class="drawer-link"><span class="material-symbols-rounded">person_add</span> Get Started</a>
+      </div>
+      <!-- Auth drawer -->
+      <div id="drawerAuth" style="display:none;">
+        <a href="index.html" class="drawer-link"><span class="material-symbols-rounded">home</span> Home</a>
+        <a href="credit-overview.html" class="drawer-link"><span class="material-symbols-rounded">credit_score</span> Credit Overview</a>
+        <a href="financial_health.html" class="drawer-link"><span class="material-symbols-rounded">health_and_safety</span> Financial Health</a>
+        <a href="rewards_trust.html" class="drawer-link"><span class="material-symbols-rounded">stars</span> Rewards & Trust</a>
+        <a href="simulator.html" class="drawer-link active"><span class="material-symbols-rounded">calculate</span> Simulator</a>
+        <a href="disputes.html" class="drawer-link"><span class="material-symbols-rounded">gavel</span> Disputes</a>
+        <a href="consents.html" class="drawer-link"><span class="material-symbols-rounded">assignment_turned_in</span> Consents</a>
+        <a href="notifications.html" class="drawer-link"><span class="material-symbols-rounded">notifications</span> Notifications</a>
+        <a href="profile.html" class="drawer-link"><span class="material-symbols-rounded">person</span> Profile</a>
+        <button class="drawer-link" id="drawerLogout" style="background:none;border:none;cursor:pointer;">
+          <span class="material-symbols-rounded">logout</span> Logout
+        </button>
+      </div>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Page Header -->
+    <section class="page-header">
+      <div class="container">
+        <div class="page-header-content">
+          <h1 class="page-title">Loan Simulator</h1>
+          <p class="page-description">Calculate loan payments, assess risk, and simulate different financial scenarios</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Simulator Dashboard -->
+    <section class="simulator-section">
+      <div class="container">
+        <div class="simulator-grid">
+          <!-- Loan Calculator -->
+          <div class="calculator-card">
+            <div class="card-header">
+              <h2 class="card-title">Loan Calculator</h2>
+              <p class="card-description">Calculate your monthly payments and total interest</p>
+            </div>
+
+            <div class="calculator-form">
+              <div class="form-group">
+                <label for="loanAmount">Loan Amount ($)</label>
+                <input type="number" id="loanAmount" class="form-input" value="50000" min="1000" max="1000000" step="1000">
+                <div class="input-slider">
+                  <input type="range" id="loanAmountSlider" min="1000" max="1000000" value="50000" step="1000">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="interestRate">Interest Rate (%)</label>
+                <input type="number" id="interestRate" class="form-input" value="6.5" min="1" max="30" step="0.1">
+                <div class="input-slider">
+                  <input type="range" id="interestRateSlider" min="1" max="30" value="6.5" step="0.1">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="loanTerm">Loan Term (Years)</label>
+                <input type="number" id="loanTerm" class="form-input" value="30" min="1" max="50">
+                <div class="input-slider">
+                  <input type="range" id="loanTermSlider" min="1" max="50" value="30">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label for="downPayment">Down Payment ($)</label>
+                <input type="number" id="downPayment" class="form-input" value="10000" min="0" step="1000">
+                <div class="input-slider">
+                  <input type="range" id="downPaymentSlider" min="0" max="500000" value="10000" step="1000">
+                </div>
+              </div>
+
+              <button type="button" id="calculateBtn" class="btn btn-primary calculate-btn">
+                <span class="material-symbols-rounded">calculate</span>
+                Calculate Payment
+              </button>
+            </div>
+          </div>
+
+          <!-- Results Display -->
+          <div class="results-card">
+            <div class="card-header">
+              <h2 class="card-title">Payment Summary</h2>
+              <p class="card-description">Your loan calculation results</p>
+            </div>
+
+            <div class="results-display" id="resultsDisplay">
+              <div class="result-item">
+                <span class="result-label">Monthly Payment</span>
+                <span class="result-value" id="monthlyPayment">$0.00</span>
+              </div>
+
+              <div class="result-item">
+                <span class="result-label">Total Payment</span>
+                <span class="result-value" id="totalPayment">$0.00</span>
+              </div>
+
+              <div class="result-item">
+                <span class="result-label">Total Interest</span>
+                <span class="result-value" id="totalInterest">$0.00</span>
+              </div>
+
+              <div class="result-item">
+                <span class="result-label">Principal Amount</span>
+                <span class="result-value" id="principalAmount">$0.00</span>
+              </div>
+
+              <div class="result-item">
+                <span class="result-label">Loan-to-Value Ratio</span>
+                <span class="result-value" id="loanToValue">0%</span>
+              </div>
+            </div>
+
+            <div class="payment-breakdown" id="paymentBreakdown">
+              <h3>Payment Breakdown</h3>
+              <div class="breakdown-chart">
+                <div class="breakdown-item">
+                  <div class="breakdown-color principal-color"></div>
+                  <span>Principal</span>
+                </div>
+                <div class="breakdown-item">
+                  <div class="breakdown-color interest-color"></div>
+                  <span>Interest</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Risk Assessment -->
+        <div class="risk-assessment">
+          <div class="card-header">
+            <h2 class="card-title">Risk Assessment</h2>
+            <p class="card-description">AI-powered risk analysis based on your inputs</p>
+          </div>
+
+          <div class="risk-meter">
+            <div class="risk-circle" id="riskCircle">
+              <div class="risk-value" id="riskValue">Medium</div>
+              <div class="risk-label">Risk Level</div>
+            </div>
+            <div class="risk-details">
+              <div class="risk-score" id="riskScore">65/100</div>
+              <div class="risk-description" id="riskDescription">
+                This loan has a moderate risk level. Consider reducing the loan amount or increasing down payment to improve your risk profile.
+              </div>
+            </div>
+          </div>
+
+          <div class="risk-factors">
+            <h3>Risk Factors</h3>
+            <div class="factors-grid">
+              <div class="factor-item" id="factor1">
+                <span class="material-symbols-rounded">check_circle</span>
+                <span>Good credit utilization ratio</span>
+              </div>
+              <div class="factor-item" id="factor2">
+                <span class="material-symbols-rounded">warning</span>
+                <span>High debt-to-income ratio</span>
+              </div>
+              <div class="factor-item" id="factor3">
+                <span class="material-symbols-rounded">check_circle</span>
+                <span>Stable employment history</span>
+              </div>
+              <div class="factor-item" id="factor4">
+                <span class="material-symbols-rounded">info</span>
+                <span>Consider loan insurance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Scenario Comparison -->
+        <div class="scenario-comparison">
+          <div class="card-header">
+            <h2 class="card-title">Scenario Comparison</h2>
+            <p class="card-description">Compare different loan scenarios side by side</p>
+          </div>
+
+          <div class="scenarios-grid">
+            <div class="scenario-card current-scenario">
+              <div class="scenario-header">
+                <h3>Current Scenario</h3>
+                <span class="scenario-badge">Current</span>
+              </div>
+              <div class="scenario-details">
+                <div class="scenario-item">
+                  <span>Monthly Payment</span>
+                  <span id="currentMonthly">$0.00</span>
+                </div>
+                <div class="scenario-item">
+                  <span>Total Interest</span>
+                  <span id="currentInterest">$0.00</span>
+                </div>
+                <div class="scenario-item">
+                  <span>Risk Level</span>
+                  <span id="currentRisk">Medium</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="scenario-card alternative-scenario">
+              <div class="scenario-header">
+                <h3>Recommended</h3>
+                <span class="scenario-badge recommended">Recommended</span>
+              </div>
+              <div class="scenario-details">
+                <div class="scenario-item">
+                  <span>Monthly Payment</span>
+                  <span id="altMonthly">$0.00</span>
+                </div>
+                <div class="scenario-item">
+                  <span>Total Interest</span>
+                  <span id="altInterest">$0.00</span>
+                </div>
+                <div class="scenario-item">
+                  <span>Risk Level</span>
+                  <span id="altRisk">Low</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Chatbot -->
+  <div id="chatbot-container">
+    <div class="chatbot-icon" onclick="toggleChatbox()">
+      <span class="material-symbols-rounded">support_agent</span>
+    </div>
+
+    <div id="chatPopup" class="chatbot-popup hidden">
+      <div class="chatbot-header">
+        <span>Nebify Assistant 🤖</span>
+        <button onclick="toggleChatbox()">
+          <span class="material-symbols-rounded">close</span>
+        </button>
+      </div>
+      <div class="chatbot-messages" id="chatMessages">
+        <p>👋 Hello! I can help you simulate different loan scenarios and assess your risk. What would you like to calculate?</p>
+      </div>
+      <input
+        type="text"
+        id="chatInput"
+        placeholder="Type your message..."
+        onkeydown="if(event.key==='Enter') sendChatMessage()"
+      />
+      <button onclick="sendChatMessage()">Send</button>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-section">
+          <div class="footer-logo">
+            <img src="logo.png" alt="Nebify" class="logo-img" />
+            <span class="logo-text">Nebify</span>
+          </div>
+          <p class="footer-description">
+            Empowering individuals to take control of their credit journey with innovative tools and expert guidance.
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">facebook</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">twitter</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">linkedin</span>
+            </a>
+            <a href="#" class="social-link">
+              <span class="material-symbols-rounded">instagram</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Product</h4>
+          <ul class="footer-links">
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#">API</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Company</h4>
+          <ul class="footer-links">
+            <li><a href="investment.html">Investment</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="#">Careers</a></li>
+            <li><a href="#">Blog</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4 class="footer-title">Support</h4>
+          <ul class="footer-links">
+            <li><a href="#">Help Center</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Service</a></li>
+            <li><a href="#">Security</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; 2024 Nebify. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="chatbot.js"></script>
+  <script src="simulator.js"></script>
+  <script>
+    (function() {
+      const isAuthed = localStorage.getItem('isAuthenticated') === 'true';
+      const guestMenu = document.getElementById('navMenuGuest');
+      const authMenu = document.getElementById('navMenuAuth');
+      const guestActions = document.getElementById('guestActions');
+      const authActions = document.getElementById('authActions');
+      const logoutBtn = document.getElementById('logoutBtn');
+      const drawerGuest = document.getElementById('drawerGuest');
+      const drawerAuth = document.getElementById('drawerAuth');
+      const drawerLogout = document.getElementById('drawerLogout');
+
+      const applyState = (authed) => {
+        if (authed) {
+          if (guestMenu) guestMenu.style.display = 'none';
+          if (authMenu) authMenu.style.display = '';
+          if (guestActions) guestActions.style.display = 'none';
+          if (authActions) authActions.style.display = 'flex';
+          if (drawerGuest) drawerGuest.style.display = 'none';
+          if (drawerAuth) drawerAuth.style.display = 'block';
+        } else {
+          if (guestMenu) guestMenu.style.display = '';
+          if (authMenu) authMenu.style.display = 'none';
+          if (guestActions) guestActions.style.display = 'flex';
+          if (authActions) authActions.style.display = 'none';
+          if (drawerGuest) drawerGuest.style.display = 'block';
+          if (drawerAuth) drawerAuth.style.display = 'none';
+        }
+      };
+
+      applyState(isAuthed);
+
+      const doLogout = () => {
+        localStorage.removeItem('isAuthenticated');
+        applyState(false);
+        window.location.href = 'index.html';
+      };
+
+      if (logoutBtn) logoutBtn.addEventListener('click', doLogout);
+      if (drawerLogout) drawerLogout.addEventListener('click', doLogout);
+    })();
+  </script>
+
+  <script>
+    // Drawer toggle
+    (function() {
+      const navToggle = document.getElementById('navToggle');
+      const drawer = document.getElementById('mobileDrawer');
+      const overlay = document.getElementById('drawerOverlay');
+      const closeBtn = document.getElementById('drawerClose');
+      const drawerLinks = document.querySelectorAll('.drawer-link');
+
+      const openDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.add('open');
+        overlay.classList.add('show');
+        drawer.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeDrawer = () => {
+        if (!drawer || !overlay) return;
+        drawer.classList.remove('open');
+        overlay.classList.remove('show');
+        drawer.setAttribute('aria-hidden', 'true');
+        document.body.style.overflow = '';
+      };
+
+      if (navToggle) navToggle.addEventListener('click', openDrawer);
+      if (closeBtn) closeBtn.addEventListener('click', closeDrawer);
+      if (overlay) overlay.addEventListener('click', closeDrawer);
+      drawerLinks.forEach(link => link.addEventListener('click', closeDrawer));
+      window.addEventListener('keydown', (e) => { if (e.key === 'Escape') closeDrawer(); });
+    })();
+  </script>
+</body>
+</html>
